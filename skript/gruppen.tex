@@ -2,45 +2,111 @@
 \subsection{Grundlegende Definitionen}
 
 \begin{definition}
-  Sei $M$ eine Menge. 
-  \begin{enumerate}[(a)]
-  \item Eine \begriff{Verknüpfung} (auf \(M\)) ist eine Abbildung $\_\cdot\_:M\times M \to M$.\footnote{Die Unterstriche ``\(\_\)'' im Namen ``\(\_\cdot\_\)'' bedeuten, dass wir Anwendungen der Abbildung ``\(\_\cdot\_:M\times M\to M\)'' auf Elemente \((x,y)\in M\) schreiben als ``\(x\cdot y\)''. Im Gegensatz dazu würden wir ja für \(f:M\times M \to M\) die Anwendung auf \((x,y)\) schreiben als \(f((x,y))\).}
-  \item Eine Verknüpfung $\_\cdot\_:M\times M\to M$ heißt \begriff{assoziativ}, wenn gilt:
-    \begin{align*}
-      \forall x,y,z\in M. (x\cdot y)\cdot z = x\cdot (y\cdot z)
-    \end{align*}
-  \item Sei $\_\cdot\_$ Verknüpfung auf \(M\). Ein Element $e\in M$ heißt \begriff{linksneutral}, wenn
-    \begin{align*}
-      \forall x\in M. e\cdot x=x
-    \end{align*}
-    und \begriff{rechtsneutral}, wenn 
-    \begin{align*}
-      \forall x\in M. x\cdot e=x
-    \end{align*}
-    gilt. $e$ heißt \begriff{neutrales Element}, wenn $e$ links- und rechtsneutral ist.
-  \end{enumerate}
+  Sei $M$ eine Menge. Eine \begriff{Verknüpfung} (auf \(M\)) ist eine Abbildung $\_\cdot\_:M\times M \to M$.\footnote{Die Unterstriche ``\(\_\)'' im Namen ``\(\_\cdot\_\)'' bedeuten, dass wir Anwendungen der Abbildung ``\(\_\cdot\_:M\times M\to M\)'' auf Elemente \((x,y)\in M\) schreiben als ``\(x\cdot y\)''. Im Gegensatz dazu würden wir ja für \(f:M\times M \to M\) die Anwendung auf \((x,y)\) schreiben als \(f((x,y))\).}
 \end{definition}
 
 \begin{definition}
   Sei \(M\) eine Menge und \(\_\cdot\_\) eine Verknüpfung auf \(M\).
   \begin{enumerate}
-  \item Das Paar \((M,\_\cdot\_)\) heißt \begriff{Halbgruppe}, wenn \(\_\cdot\_\) assoziativ ist.
-  \item Eine Halbgruppe $(M,\_\cdot\_)$ zusammen mit einem neutralen Element $e\in M$ heißt \begriff{Monoid}.
-  \item Sei $M$ ein Monoid und $x,y\in M$. $y$ heißt \begriff{rechtsinvers} zu $x$, wenn $x\cdot y=e$ gilt. $y$ heißt \begriff{linksinvers} zu $x$, wenn $y\cdot x=e$ gilt. Wenn $y$ link- und rechtsinvers zu $x$ ist, sagen wir $y$ ist \begriff{invers} zu $x$.
-  \item Ein Monoid $(M,\_\cdot\_,e)$ heißt \begriff{Gruppe}, wenn es zu jedem Element von \(M\) ein Inverses gibt.
+  \item $\_\cdot\_$ heißt \begriff{assoziativ}, wenn gilt:
+    \begin{align*}
+      \forall x,y,z\in M. (x\cdot y)\cdot z = x\cdot (y\cdot z)
+    \end{align*}
+    Das Paar \((M,\cdot)\) heißt in diesem Fall \begriff{Halbgruppe}.
+  \item Ein Element $e\in M$ heißt \begriff{neutrales Element}, wenn für alle \(x\in M\) gilt: \(x=e\cdot x=x\cdot e\).
+    Eine Halbgruppe $(M,\cdot)$ zusammen mit einem neutralen Element $e\in M$ heißt \begriff{Monoid}.
+  \item Sei $(M,\cdot,e)$ ein Monoid und $x,y\in M$. $y$ heißt \begriff{invers} zu $x$, wenn $y\cdot x=x\cdot y=e$ gilt.
+  Ein Monoid $(M,\cdot,e)$ heißt \begriff{Gruppe}, wenn es zu jedem Element von \(M\) ein Inverses gibt.
   \end{enumerate}
 \end{definition}
+
+Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und links- und rechtsinvers. Aufgrund des folgenden Sachverhalts wird es sich nicht für uns lohnen, diese Begriffe zu definieren:
 
 \begin{bemerkung}
   Sei \(M\) eine Menge mit Verknüpfung \(\_\cdot\_\).
   \begin{enumerate}[(a)]
-  \item Sei \(e_l\in M\) linksneutral und \(e_r\in M\) rechtsneutral. Dann gilt \(e_l=e_r\).
-  \item 
+  \item Sei \(e_l\in M\) sodass \(e\cdot x=x\) und \(e_r\in M\) sodass \(x\cdot e_r=x\) für alle \(\) gelten. Dann gilt \(e_l=e_r\).
+  \item Sei \(M\) nun Monoid mit neutralem Element \(e\)
+    und \(x,y,y^\prime\in M\) sodass \(xy=e\) und \(y^\prime x=e\) dann gilt \(y=y^\prime\). 
   \end{enumerate}
 \end{bemerkung}
 
 \begin{beweis}
   \begin{enumerate}[(a)]
-  \item \(e_l=e_l\cdot e_r=e_r\)
+  \item \(e_l=e_l\cdot e_r=e_r\).
+  \item \(y=e\cdot y=(y^\prime\cdot x) \cdot y=y^\prime\cdot (x \cdot y)=y^\prime\cdot e=y^\prime\).
   \end{enumerate}
+\end{beweis}
+
+\begin{definition}
+  \begin{enumerate}[(a)]
+  \item Eine Verknüpfung \(\_\cdot\_\) auf einer Menge \(M\) heißt \begriff{kommutativ}, wenn für alle \(x,y\in M\) gilt: \(x\cdot y=y\cdot x\).
+  \item Eine Gruppe \(G\) mit Verknüpfung \(\_\cdot\_\) heißt \begriff{abelsche Gruppe}, wenn \(\_\cdot\_\) kommutativ ist.
+  \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+  \begin{enumerate}[(a)]
+  \item \(\Z,\Q,\R,\C\) sind abelsche Gruppen mit der bekannten Verknüpfung \(+\).
+  \item \(\{1,-1\},\Q\setminus\{0\},\R\setminus\{0\},\C\setminus\{0\}\) sind Gruppen mit der Verknüpfung \(\cdot\).
+  \item Sei \(M\) eine Menge. Die Abbildungen \(M\to M\) bilden ein Monoid mit der Verknüpfung \(\circ\) und neutralem Element \(\id_M\). Die Bijektionen \(M\to M\) bilden eine Gruppe, die wir \begriff{Permutationsgruppe} oder \begriff{symmetrische Gruppe} nennen und mit \(S(M)\)\index{\(S(M)\)} bezeichnen.
+  \end{enumerate}
+\end{beispiel}
+
+\begin{konvention}
+  \begin{enumerate}[(i)]
+  \item Bei multiplikativen Gruppen \(G\), also Gruppen deren Verknüpfung mit \(\_\cdot\_\) bezeichnet wird, schreiben wir \(x^{-1}\) für das Inverse von \(x\in G\). ``\(\cdot\)'' kann auch weggelassen werden.
+  \item Für die Verknüpfung in abelschen Gruppen \(A\) verwenden wir oft \(+\).
+    In diesem Fall schreiben wir \(-x\) für das Inverse von \(x\in A\) und \(0\) für das Neutralelement.
+  \item In Halbgruppen kann die Klammerung von Verknüpfungsausdrücken weggelassen werden.
+  \item Sei \((G,\cdot,e)\) Gruppe und \(g_0,\dots,g_n\in G\). Wir schreiben\index{\(\prod_{i=0}^na_i\)}
+    \[
+    \prod_{i=0}^na_i:= a_0\cdot (a_1\cdot \dots (a_{n-1}\cdot a_n)\dots )
+    \]
+    wobei im Fall \(n<0\) gilt: \(\prod_{i=0}^na_i=e\).
+  \item Analog verwenden wir in abelschen Gruppen die bekannte Schreibweise\index{\(\sum_{i=0}^na_i\)}
+    \[
+      \sum_{i=0}^na_i=a_0+\dots+a_n
+    \]
+  \item Wir verwenden bevorzugt multiplikative Schreibweise und bezeichnen das neutrale Element mit \(e\).
+  \item Sei \(H\) Halbgruppe und \(U,V\subseteq H\) und \(a\in H\). Wir schreiben:
+    \begin{align*}
+      a\cdot U&:=\{a\cdot x\mid x\in U\}\subseteq H \\
+      U\cdot V&:=\{x\cdot y\mid x\in U, y\in V\}\subseteq H\text{ und }\\
+      U^{-1}&:=\{x^{-1}\mid x\in U\}\text{ falls alle \(x\in U\) invertierbar sind.}
+    \end{align*}
+  \end{enumerate}
+\end{konvention}
+
+\begin{lemma}
+  Sei \((G,\cdot)\) eine Halbgruppe und
+  \begin{enumerate}[(i)]
+  \item \(e\in G\) sodass \(ex=x\) für alle \(x\in G\) gilt 
+  \item und für jedes \(x\in G\) ein \(y\in G\) existiert mit \(yx=e\).
+  \end{enumerate}
+  Dann ist \(G\) eine Gruppe mit Neutralement \(e\).
+\end{lemma}
+
+\begin{beweis}
+  Übung?
+\end{beweis}
+
+\subsection{Untergruppen}
+
+\begin{definition}
+  Sei \(M\) Monoid und \(U\subseteq M\) eine Teilmenge.
+  \begin{enumerate}[(a)]
+  \item \(U\) heißt \begriff{Untermonoid}, wenn \(e\in U\) gilt und für alle \(x,y\in U\) stets \(xy\in U\) gilt.
+  \item Ist \(M\) zusätzlich eine Gruppe, \(U\) ein Untermonoid und gilt zusätzliche \(x^{-1}\in U\) für alle \(x\in U\), so heißt \(U\) \begriff{Untergruppe}.
+  \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+  Seien \(G\) Gruppe und \(U\subseteq G\) eine nichtleere Teilmenge.
+  Weiter sei für alle \(g,h\in U\) auch \(gh^{-1}\in U\).
+  Dann ist \(U\) eine Untergruppe.
+\end{lemma}
+
+\begin{beweis}
+  Übung?
 \end{beweis}
