@@ -4,14 +4,12 @@
 \begin{definition}
   Sei $M$ eine Menge. 
   \begin{enumerate}[(a)]
-  \item Eine Abbildung $\_\cdot\_:M\times M \to M$ nennen wir auch \begriff{Verknüpfung}.
-  \item Ein \begriff{Magma} ist eine Menge $M$ zusammen mit einer Verknüpfung. 
+  \item Eine \begriff{Verknüpfung} (auf \(M\)) ist eine Abbildung $\_\cdot\_:M\times M \to M$.\footnote{Die Unterstriche ``\(\_\)'' im Namen ``\(\_\cdot\_\)'' bedeuten, dass wir Anwendungen der Abbildung ``\(\_\cdot\_:M\times M\to M\)'' auf Elemente \((x,y)\in M\) schreiben als ``\(x\cdot y\)''. Im Gegensatz dazu würden wir ja für \(f:M\times M \to M\) die Anwendung auf \((x,y)\) schreiben als \(f((x,y))\).}
   \item Eine Verknüpfung $\_\cdot\_:M\times M\to M$ heißt \begriff{assoziativ}, wenn gilt:
     \begin{align*}
       \forall x,y,z\in M. (x\cdot y)\cdot z = x\cdot (y\cdot z)
     \end{align*}
-  \item Ein Magma mit assoziativer Verknüpfung heißt \begriff{Halbgruppe}
-  \item Sei $M$ ein Magma mit Verknüpfung $\_\cdot\_$. Ein Element $e\in M$ heißt \begriff{linksneutral}, wenn
+  \item Sei $\_\cdot\_$ Verknüpfung auf \(M\). Ein Element $e\in M$ heißt \begriff{linksneutral}, wenn
     \begin{align*}
       \forall x\in M. e\cdot x=x
     \end{align*}
@@ -20,14 +18,29 @@
       \forall x\in M. x\cdot e=x
     \end{align*}
     gilt. $e$ heißt \begriff{neutrales Element}, wenn $e$ links- und rechtsneutral ist.
-  \item Ein Magma $(M,\_\cdot\_)$ zusammen mit einem neutralen Element $e\in M$ heißt \begriff{Monoid}.
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}
+  Sei \(M\) eine Menge und \(\_\cdot\_\) eine Verknüpfung auf \(M\).
+  \begin{enumerate}
+  \item Das Paar \((M,\_\cdot\_)\) heißt \begriff{Halbgruppe}, wenn \(\_\cdot\_\) assoziativ ist.
+  \item Eine Halbgruppe $(M,\_\cdot\_)$ zusammen mit einem neutralen Element $e\in M$ heißt \begriff{Monoid}.
   \item Sei $M$ ein Monoid und $x,y\in M$. $y$ heißt \begriff{rechtsinvers} zu $x$, wenn $x\cdot y=e$ gilt. $y$ heißt \begriff{linksinvers} zu $x$, wenn $y\cdot x=e$ gilt. Wenn $y$ link- und rechtsinvers zu $x$ ist, sagen wir $y$ ist \begriff{invers} zu $x$.
-  \item Ein Monoid $(M,\_\cdot\_,e)$ heißt \begriff{Gruppe}, wenn es zu jedem Element ein inverses gibt.
+  \item Ein Monoid $(M,\_\cdot\_,e)$ heißt \begriff{Gruppe}, wenn es zu jedem Element von \(M\) ein Inverses gibt.
   \end{enumerate}
 \end{definition}
 
 \begin{bemerkung}
+  Sei \(M\) eine Menge mit Verknüpfung \(\_\cdot\_\).
   \begin{enumerate}[(a)]
+  \item Sei \(e_l\in M\) linksneutral und \(e_r\in M\) rechtsneutral. Dann gilt \(e_l=e_r\).
   \item 
   \end{enumerate}
 \end{bemerkung}
+
+\begin{beweis}
+  \begin{enumerate}[(a)]
+  \item \(e_l=e_l\cdot e_r=e_r\)
+  \end{enumerate}
+\end{beweis}
