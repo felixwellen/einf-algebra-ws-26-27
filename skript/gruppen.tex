@@ -110,3 +110,27 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und
 \begin{beweis}
   Übung?
 \end{beweis}
+
+\subsection{Homomorphismen}
+
+\begin{definition}
+  Seinen \((M,\cdot_1)\) und \((N,\cdot_2)\) Halbgruppen und \(f:M\to N\) eine Abbildung.
+  \begin{enumerate}[(a)]
+  \item \(f\) heißt Halbgruppenhomomorphismus, wenn für alle \(x,y\in M\) gilt:
+    \[
+       f(x\cdot_1 y)=f(x)\cdot_2 f(y)
+    \]
+  \item Seien \(M,N\) Monoide mit Neutralelementen \(e_1\) und \(e_2\) und \(f\) ein Halbgruppenhomomorphismus. \(f\) heißt \begriff{Monoidhomomorphismus}, wenn \(f(e_1)=e_2\) gilt.
+  \item Seien \(M,N\) Gruppen und \(f\) Monoidhomorphismus. Dann heißt \(f\) \begriff{Gruppenhomomorphismus}, wenn für alle \(x\in G\) gilt: \(f(x^{-1})=f(x)^{-1}\). Dazu sollte die folgende Bemerkung beachtet werden.
+  \end{enumerate}
+\end{definition}
+
+\begin{bemerkung}
+  Eine Abbildung \(f:G\to H\) zwischen Gruppen \(G,H\) ist bereits dann ein Gruppenhomomorphismus, wenn \(f\) ein Halbgruppenhomomorphismus ist.
+\end{bemerkung}
+
+\begin{beweis}
+  \(f(xx^{-1})=f(e)=f(xx^{-1})f(xx^{-1})\) also \(e=f(xx^{-1})=f(e)\).
+\end{beweis}
+
+\subsection{Faktorgruppen}
