@@ -24,6 +24,7 @@
 
 \begin{beispiel}
   \begin{enumerate}[(a)]
+  \item \(\N\), was bei uns stets die 0 einschließt, ist ein Monoid mit Neutralelement 0 und Verknüpfung \(+\). \(N\) ist aber auch ein Monoid mit Neutralelement 1 und Verknüpfung \(\cdot\).
   \item \(\Z,\Q,\R,\C\) sind abelsche Gruppen mit der bekannten Verknüpfung \(+\).
   \item \(\{1,-1\},\Q\setminus\{0\},\R\setminus\{0\},\C\setminus\{0\}\) sind Gruppen mit der Verknüpfung \(\cdot\).
   \item Sei \(M\) eine Menge. Die Bijektionen \(M\to M\) bilden eine Gruppe, die wir \begriff{Permutationsgruppe} oder \begriff{symmetrische Gruppe} nennen und mit \(S(M)\)\index{\(S(M)\)} bezeichnen.
@@ -39,7 +40,9 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und
   \item Sei \(e_l\in H\) sodass \(e\cdot x=x\) und \(e_r\in H\) sodass \(x\cdot e_r=x\) für alle \(x\) gelten. Dann gilt \(e_l=e_r\).
   \item Sei \(H\) nun Monoid mit neutralem Element \(e\)
     und \(x,y,y^\prime\in H\) sodass \(xy=e\) und \(y^\prime x=e\) dann gilt \(y=y^\prime\).
-    \rednote{Vorlesung vom 13.10.2026 hat hier geendet.}
+    \rednote{Vorlesung vom 13.10.2026 hat hier geendet. Nicht alle Beispiele wurde erwähnt.}
+  \item Sei \(H\) Gruppe, dann gilt für alle \(g\in H\): \((g^{-1})^{-1}=g\).
+    Weiter gilt für \(g,h\in H\): \((gh)^{-1}=h^{-1}g^{-1}\).
   \item
    Sei nun \(H\) Halbgruppe und existiere \(e\in H\) sodass gilt:
    \begin{enumerate}[(i)]
@@ -47,8 +50,6 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und
    \item und für jedes \(x\in H\) ein \(y\in H\) existiert mit \(yx=e\).
    \end{enumerate}
    Dann ist \(H\) bereits eine Gruppe mit Neutralement \(e\).
-  \item Sei \(H\) Gruppe, dann gilt für alle \(g\in H\): \((g^{-1})^{-1}=g\).
-    Weiter gilt für \(g,h\in H\): \((gh)^{-1}=h^{-1}g^{-1}\).
   \end{enumerate}
 \end{bemerkung}
 
@@ -82,7 +83,7 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und
     \[
       \sum_{i=0}^na_i=a_0+\dots+a_n
     \]
-  \item Wir verwenden bevorzugt multiplikative Schreibweise und bezeichnen das neutrale Element mit \(e\).
+  \item Wir verwenden bevorzugt multiplikative Schreibweise und bezeichnen das neutrale Element mit \(e\) oder 1.
   \item Sei \(H\) Halbgruppe und \(U,V\subseteq H\) und \(a\in H\). Wir schreiben:
     \begin{align*}
       a\cdot U&:=\{a\cdot x\mid x\in U\}\subseteq H \\
@@ -112,6 +113,13 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und
   Übung?
 \end{beweis}
 
+\begin{beispiel}
+  \begin{enumerate}[(a)]
+  \item Die Teilmengen der Form \(n\cdot \Z\subseteq \Z\) für \(n\in\Z\) sind genau die Untergruppen der Gruppe \((\Z,+)\).
+  \item \(\O(n)\subseteq \GL_n(\R)\), \(\SO(n)\subseteq \GL_n(\R)\) und \(\SL(n)\subseteq \GL_n(k)\), wobei \(\SL(n):=\{M\in k^{n\times n}\mid \det(M)=1\}\).
+  \end{enumerate}
+\end{beispiel}
+
 \subsection{Homomorphismen}
 
 \begin{definition}
@@ -122,16 +130,54 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und
        f(x\cdot_1 y)=f(x)\cdot_2 f(y)
     \]
   \item Seien \(M,N\) Monoide mit Neutralelementen \(e_1\) und \(e_2\) und \(f\) ein Halbgruppenhomomorphismus. \(f\) heißt \begriff{Monoidhomomorphismus}, wenn \(f(e_1)=e_2\) gilt.
-  \item Seien \(M,N\) Gruppen und \(f\) Monoidhomorphismus. Dann heißt \(f\) \begriff{Gruppenhomomorphismus}, wenn für alle \(x\in G\) gilt: \(f(x^{-1})=f(x)^{-1}\). Dazu sollte die folgende Bemerkung beachtet werden.
+  \item Seien \(M,N\) Gruppen und \(f\) Monoidhomorphismus. Dann heißt \(f\) \begriff{Gruppenhomomorphismus}. Wir müssen nicht fordern, dass für alle \(x\in G\) gilt: \(f(x^{-1})=f(x)^{-1}\), weil sich das zeigen lässt. Siehe dazu die nächste Bemerkung.
+  \item Ein Gruppenhomomorphismus \(f:G\to H\) heißt \begriff{Isomorphismus},
+    wenn es \(g:H\to G\) gibt, sodass \(g\circ f=\id_G\) und \(f\circ g=\id_H\) gelten. Das ist genau dann der Fall, wenn \(f\) bijektiv ist.
   \end{enumerate}
 \end{definition}
 
 \begin{bemerkung}
-  Eine Abbildung \(f:G\to H\) zwischen Gruppen \(G,H\) ist bereits dann ein Gruppenhomomorphismus, wenn \(f\) ein Halbgruppenhomomorphismus ist.
+  Ein Halbgruppenhomomorphismus \(f:G\to H\) zwischen Gruppen \(G,H\) mit Neutralelementen \(e_1,e_2\) erfüllt \(f(e_1)=e_2\) und für jedes \(x\in G\) gilt \(f(x^{-1})=f(x)^{-1}  \).
 \end{bemerkung}
 
 \begin{beweis}
   \(f(xx^{-1})=f(e)=f(xx^{-1})f(xx^{-1})\) also \(e=f(xx^{-1})=f(e)\).
+\end{beweis}
+
+\begin{beispiel}
+  \label{bsp-homs}
+  \begin{enumerate}[(a)]
+  \item Sei \(M\) Monoid und \(x\in M\), dann ist \(n\mapsto x^n:\N\to M\) ein Monoidhomomorphismus.
+  \item Sei \(G\) Gruppe und \(x\in G\), dann ist \(k\mapsto x^k:\Z\to G\) ein Gruppenhomomorphismus, wobei wir für \(k<0\) festlegen: \(x^k:=(x^{|k|})^{-1}\).
+  \item Aus der Analysis ist der Gruppenisomorphismus \(e:(\R,+)\to (\R\setminus \{0\},\cdot)\) bekannt.
+  \item\label{bsp-translation} Sei \((G,\cdot)\) eine Gruppe und \(g\in G\).
+    Die Abbildung \(\tau_g:= h\mapsto gh :G\to G\) heißt \begriff{Linkstranslation} (mit \(g\)). Das liefert den Gruppenhomomorphismus \(g\mapsto \tau_g: (G,\cdot)\to (S(G),\circ)\).
+  \end{enumerate}
+\end{beispiel}
+
+\begin{lemma}
+  Sei \(f:G\to H\) Gruppenhomomorphismus und \(e_2\) das Neutralelement in \(H\).
+  \begin{enumerate}[(a)]
+  \item Es sind
+  \begin{align*}
+    &\Bild(f):=f(G)\subseteq H \text{ und }\\
+    &\Kern(f):=\{x\in G\mid f(x)=e_2\}\subseteq G
+  \end{align*}
+  jeweils Untergruppen.
+  \item \(f\) ist genau dann injektiv, wenn \(\Kern(f)=\{0\}\) gilt.
+  \item Jede Gruppe ist Untergruppe einer Permutationsgruppe.
+  \end{enumerate}
+\end{lemma}
+
+\begin{beweis}
+  \begin{enumerate}[(a)]
+  \item \(e_2\in\Bild(f)\) und für \(x,y\in\Bild(f)\) gib es Urbilder \(u,v\in G\)
+    mit \(f(u)=x, f(v)=y\) also gilt: \(f(uv^{-1})=f(u)f(v)^{-1}=xy^{-1}\in\Bild(f)\).
+    Rest: Übung.
+  \item Sei \(\Kern(f)=\{0\}\). \\
+    Dann gilt: \(f(x)=f(y) \Rightarrow f(xy^{-1})=e_2 \Rightarrow xy^{-1}\in\Kern(f)=\{0\} \Rightarrow xy^{-1}=e_1 \Rightarrow x=y\). 
+  \item Sei \((G,\cdot,e)\) eine Gruppe und \(f:=g\mapsto \tau_g:(G,\cdot)\to (S(G),\circ)\) wie in \ref{bsp-homs} \ref{bsp-translation}. Dann gilt \(\Kern(f)=\{e\}\), also ist \(f\) injektiv.
+  \end{enumerate}
 \end{beweis}
 
 \subsection{Faktorgruppen}
