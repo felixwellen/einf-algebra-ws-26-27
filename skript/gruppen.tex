@@ -28,7 +28,7 @@
   \item \(\Z,\Q,\R,\C\) sind abelsche Gruppen mit der bekannten Verknüpfung \(+\).
   \item \(\{1,-1\},\Q\setminus\{0\},\R\setminus\{0\},\C\setminus\{0\}\) sind Gruppen mit der Verknüpfung \(\cdot\).
   \item Sei \(M\) eine Menge. Die Bijektionen \(M\to M\) bilden eine Gruppe, die wir \begriff{Permutationsgruppe} oder \begriff{symmetrische Gruppe} nennen und mit \(S(M)\)\index{\(S(M)\)} bezeichnen.
-  \item Sei \(V\) ein \(k\)-Vektorraum, dann bilden die invertierbaren linearen Abbildungen \(V\) mit der Komposition (bzw.\ Matrizenmultiplikation) die Gruppe \(\GL(n,k)\). Weiter gibt es die aus der linearen Algebra bekannten Matrizengruppen \(O(n)\) und \(SO(n)\).
+  \item Sei \(V\) ein \(k\)-Vektorraum, dann bilden die invertierbaren linearen Abbildungen \(V\) mit der Komposition (bzw.\ Matrizenmultiplikation) die Gruppe \(\GL(n,k)\). Weiter gibt es die aus der linearen Algebra bekannten Matrizengruppen \(O_n\) und \(SO_n\).
   \end{enumerate}
 \end{beispiel}
 
@@ -37,10 +37,9 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und
 \begin{bemerkung}
   Sei \(H\) eine Menge mit Verknüpfung \(\_\cdot\_\).
   \begin{enumerate}[(a)]
-  \item Sei \(e_l\in H\) sodass \(e\cdot x=x\) und \(e_r\in H\) sodass \(x\cdot e_r=x\) für alle \(x\) gelten. Dann gilt \(e_l=e_r\).
+  \item Sei \(e_l\in H\) sodass \(e\cdot x=x\) und \(e_r\in H\) sodass \(x\cdot e_r=x\) für alle \(x\) gelten. Dann gilt \(e_l=e_r\). Damit gibt es insbesondere in einer Halbgruppe höchstens ein Neutralelement.
   \item Sei \(H\) nun Monoid mit neutralem Element \(e\)
-    und \(x,y,y^\prime\in H\) sodass \(xy=e\) und \(y^\prime x=e\) dann gilt \(y=y^\prime\).
-    \rednote{Vorlesung vom 13.10.2026 hat hier geendet. Nicht alle Beispiele wurde erwähnt.}
+    und \(x,y,y^\prime\in H\) sodass \(xy=e\) und \(y^\prime x=e\) dann gilt \(y=y^\prime\). Damit hat in einem Monoid jedes Element höchstens ein Inverses.
   \item Sei \(H\) Gruppe, dann gilt für alle \(g\in H\): \((g^{-1})^{-1}=g\).
     Weiter gilt für \(g,h\in H\): \((gh)^{-1}=h^{-1}g^{-1}\).
   \item
@@ -70,20 +69,19 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und
 
 \begin{konvention}
   \begin{enumerate}[(i)]
-  \item Bei multiplikativen Gruppen \(G\), also Gruppen deren Verknüpfung mit \(\_\cdot\_\) bezeichnet wird, schreiben wir \(x^{-1}\) für das Inverse von \(x\in G\). ``\(\cdot\)'' kann auch weggelassen werden.
+  \item Bei multiplikativen Gruppen \(G\), also Gruppen deren Verknüpfung mit \(\_\cdot\_\) bezeichnet wird, schreiben wir \(x^{-1}\) für das Inverse von \(x\in G\) und 1 für das Neutralelement. ``\(\cdot\)'' kann auch weggelassen werden.
   \item Für die Verknüpfung in abelschen Gruppen \(A\) verwenden wir oft \(+\).
     In diesem Fall schreiben wir \(-x\) für das Inverse von \(x\in A\) und \(0\) für das Neutralelement.
   \item In Halbgruppen kann die Klammerung von Verknüpfungsausdrücken weggelassen werden.
   \item Sei \((G,\cdot,e)\) Gruppe und \(g_0,\dots,g_n\in G\). Wir schreiben\index{\(\prod_{i=0}^na_i\)}
     \[
-    \prod_{i=0}^na_i:= a_0\cdot (a_1\cdot \dots (a_{n-1}\cdot a_n)\dots )
+    \prod_{i=0}^na_i:= a_0\cdot a_1\cdot \cdots \cdot a_n
     \]
     wobei im Fall \(n<0\) gilt: \(\prod_{i=0}^na_i=e\).
   \item Analog verwenden wir in abelschen Gruppen die bekannte Schreibweise\index{\(\sum_{i=0}^na_i\)}
     \[
       \sum_{i=0}^na_i=a_0+\dots+a_n
     \]
-  \item Wir verwenden bevorzugt multiplikative Schreibweise und bezeichnen das neutrale Element mit \(e\) oder 1.
   \item Sei \(H\) Halbgruppe und \(U,V\subseteq H\) und \(a\in H\). Wir schreiben:
     \begin{align*}
       a\cdot U&:=\{a\cdot x\mid x\in U\}\subseteq H \\
@@ -104,9 +102,12 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und
 \end{definition}
 
 \begin{lemma}
-  Seien \(G\) Gruppe und \(U\subseteq G\) eine nichtleere Teilmenge.
+  \begin{enumerate}
+  \item Untergruppen sind Gruppen.
+  \item Seien \(G\) Gruppe und \(U\subseteq G\) eine nichtleere Teilmenge.
   Weiter sei für alle \(g,h\in U\) auch \(gh^{-1}\in U\).
   Dann ist \(U\) eine Untergruppe.
+  \end{enumerate}
 \end{lemma}
 
 \begin{beweis}
@@ -116,34 +117,36 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und
 \begin{beispiel}
   \begin{enumerate}[(a)]
   \item Die Teilmengen der Form \(n\cdot \Z\subseteq \Z\) für \(n\in\Z\) sind genau die Untergruppen der Gruppe \((\Z,+)\).
-  \item \(\O(n)\subseteq \GL_n(\R)\), \(\SO(n)\subseteq \GL_n(\R)\) und \(\SL(n)\subseteq \GL_n(k)\), wobei \(\SL(n):=\{M\in k^{n\times n}\mid \det(M)=1\}\).
+  \item \(\O_n\subseteq \GL_n(\R)\), \(\SO_n\subseteq \GL_n(\R)\) und \(\SL_n\subseteq \GL_n(k)\), wobei \(\SL_n:=\{M\in k^{n\times n}\mid \det(M)=1\}\).
   \end{enumerate}
 \end{beispiel}
 
 \subsection{Homomorphismen}
 
 \begin{definition}
-  Seinen \((M,\cdot_1)\) und \((N,\cdot_2)\) Halbgruppen und \(f:M\to N\) eine Abbildung.
+  Seinen \((M,\cdot_1,e_1)\) und \((N,\cdot_2,e_2)\) Monoide und \(f:M\to N\) eine Abbildung.
   \begin{enumerate}[(a)]
-  \item \(f\) heißt Halbgruppenhomomorphismus, wenn für alle \(x,y\in M\) gilt:
-    \[
-       f(x\cdot_1 y)=f(x)\cdot_2 f(y)
-    \]
-  \item Seien \(M,N\) Monoide mit Neutralelementen \(e_1\) und \(e_2\) und \(f\) ein Halbgruppenhomomorphismus. \(f\) heißt \begriff{Monoidhomomorphismus}, wenn \(f(e_1)=e_2\) gilt.
-  \item Seien \(M,N\) Gruppen und \(f\) Monoidhomorphismus. Dann heißt \(f\) \begriff{Gruppenhomomorphismus}. Wir müssen nicht fordern, dass für alle \(x\in G\) gilt: \(f(x^{-1})=f(x)^{-1}\), weil sich das zeigen lässt. Siehe dazu die nächste Bemerkung.
-  \item Ein Gruppenhomomorphismus \(f:G\to H\) heißt \begriff{Isomorphismus},
+  \item \(f\) heißt \begriff{Monoidhomomorphismus}, wenn gilt:
+    \begin{align*}
+      f(e_1)=e_2\text{ und für alle \(x,y\in M\) gilt } f(x\cdot_1 y)=f(x)\cdot_2 f(y).
+    \end{align*}
+  \item Seien \(M,N\) Gruppen und \(f\) Monoidhomomorphismus. Dann heißt \(f\) \begriff{Gruppenhomomorphismus}. Wir müssen nicht fordern, dass für alle \(x\in G\) gilt: \(f(x^{-1})=f(x)^{-1}\), weil sich das zeigen lässt. Siehe dazu die nächste Bemerkung.
+  \item Ein Gruppenhomomorphismus \(f:G\to H\) heißt \begriff{Gruppenisomorphismus},
     wenn es \(g:H\to G\) gibt, sodass \(g\circ f=\id_G\) und \(f\circ g=\id_H\) gelten. Das ist genau dann der Fall, wenn \(f\) bijektiv ist.
   \end{enumerate}
 \end{definition}
 
 \begin{bemerkung}
-  Ein Halbgruppenhomomorphismus \(f:G\to H\) zwischen Gruppen \(G,H\) mit Neutralelementen \(e_1,e_2\) erfüllt \(f(e_1)=e_2\) und für jedes \(x\in G\) gilt \(f(x^{-1})=f(x)^{-1}  \).
+  Sei \(f:G\to H\) eine Abbildung zwischen Gruppen \((G,\cdot_1,e_1),(H,\cdot_2,e_2)\) und gelte \(\forall x,y\in G. f(x\cdot_1y)=f(x)\cdot_2 f(y)\), dann gilt:
+  \begin{align*}
+    f(e_1)=e_2\text{ und für alle \(x\in G\) gilt }f(x^{-1})=f(x)^{-1}.
+  \end{align*}
 \end{bemerkung}
 
 \begin{beweis}
-  \(f(xx^{-1})=f(e)=f(xx^{-1})f(xx^{-1})\) also \(e=f(xx^{-1})=f(e)\).
+  \(f(e_1)=f(e_1e_1)=f(e_1)f(e_1)\) also \(e_2=f(e_1)\). \(e_2=f(xx^{-1})=f(x)f(x^{-1})\), also \(f(x^{-1})=f(x)^{-1}\) wegen Eindeutigkeit von Inversen.
 \end{beweis}
-
+\rednote{Hier hat die Vorlesung am 16.10.2026 geendet.}
 \begin{beispiel}
   \label{bsp-homs}
   \begin{enumerate}[(a)]
@@ -165,7 +168,7 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und
   \end{align*}
   jeweils Untergruppen.
   \item \(f\) ist genau dann injektiv, wenn \(\Kern(f)=\{0\}\) gilt.
-  \item Jede Gruppe ist Untergruppe einer Permutationsgruppe.
+  \item Jede Gruppe ist (bis auf Isomorphismus) Untergruppe einer Permutationsgruppe.
   \end{enumerate}
 \end{lemma}
 
