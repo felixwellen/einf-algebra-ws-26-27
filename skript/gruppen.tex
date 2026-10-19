@@ -189,8 +189,8 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
 \begin{bemerkung}
   Sei \(G\) eine Gruppe, \(H\subseteq G\) Untergruppe und \(g\in G\).
   Eine Teilmenge der Form
-  \[gH\coloneq \{gn\in G\mid n\in H\}\]
-  nennen wir \begriff{Linksnebenklasse} und entsprechend \(Hg\coloneq\{ng\mid n\in H\}\) \begriff{Rechtsnebenklasse}. Es gilt:
+  \[gH\coloneq \{gh\in G\mid h\in H\}\]
+  nennen wir \begriff{Linksnebenklasse} und entsprechend \(Hg\coloneq\{hg\mid h\in H\}\) \begriff{Rechtsnebenklasse}. Es gilt:
   \begin{enumerate}[(a)]
   \item Zwischen je zwei Linksnebenklassen gibt es eine Bijektion.
   \item \(xH=yH\) genau dann wenn \(y^{-1}x\in H\). 
@@ -202,7 +202,7 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
 \begin{beispiel}
   Sei \(U\coloneq n\Z\subseteq \Z\) mit \(n\in\N, n>0\) eine der aus \Cref{untergruppen-von-ZZ-und matrizengruppen} bekannten Untergruppen.
   Dann ist jede Linksnebenklasse identisch zu genau einer der folgenden Linksnebenklassen:
-  \[\Z=0+U, 1+U,\dots, (n-1)+U. \]
+  \[0+U, 1+U,\dots, (n-1)+U. \]
 \end{beispiel}
 
 \begin{definition}
@@ -210,9 +210,11 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
   \begin{enumerate}
   \item \(U\) heißt \begriff{Normalteiler}, wenn für alle \(g\in G\) gilt:
   \[gN=Ng.\]
-\item \(G/N\)\index{\(G/N\)} bezeichnet den Quotienten der Menge \(G\) nach der Äquivalenzrelation \(g\sim h \Leftrightarrow h^{-1}g\in N\). Wenn \(N\) Normalteiler ist, heißt \(G/N\) \begriff{Faktorgruppe}. 
+\item \(G/N\)\index{\(G/N\)} bezeichnet die Menge der Linksnebenklassen von \(N\) in \(G\). Wenn \(N\) Normalteiler ist, heißt \(G/N\) \begriff{Faktorgruppe}. 
   \end{enumerate}
 \end{definition}
+
+Mit dem selben Ergebnis hätten wir \(G/N\) als den Quotienten der Menge \(G\) nach der Äquivalenzrelation \(g\sim h \Leftrightarrow h^{-1}g\in N\) definieren können. 
 
 \begin{beispiel}
   \begin{enumerate}[(a)]
