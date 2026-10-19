@@ -115,6 +115,7 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und
 \end{beweis}
 
 \begin{beispiel}
+  \label{untergruppen-von-ZZ-und matrizengruppen}
   \begin{enumerate}[(a)]
   \item Die Teilmengen der Form \(n\cdot \Z\subseteq \Z\) für \(n\in\Z\) sind genau die Untergruppen der Gruppe \((\Z,+)\).
   \item \(\O_n\subseteq \GL_n(\R)\), \(\SO_n\subseteq \GL_n(\R)\) und \(\SL_n\subseteq \GL_n(k)\), wobei \(\SL_n:=\{M\in k^{n\times n}\mid \det(M)=1\}\).
@@ -184,3 +185,46 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral und
 \end{beweis}
 
 \subsection{Faktorgruppen}
+
+\begin{bemerkung}
+  Sei \(G\) eine Gruppe, \(H\subseteq G\) Untergruppe und \(g\in G\).
+  Eine Teilmenge der Form
+  \[gH\coloneq \{gn\in G\mid n\in H\}\]
+  nennen wir \begriff{Linksnebenklasse} und entsprechend \(Hg\coloneq\{ng\mid n\in H\}\) \begriff{Rechtsnebenklasse}. Es gilt:
+  \begin{enumerate}[(a)]
+  \item Zwischen je zwei Linksnebenklassen gibt es eine Bijektion.
+  \item \(xH=yH\) genau dann wenn \(xy^{-1}\in H\). 
+  \item Für alle \(x,y\in G\) gilt \(xH=yH\) oder \(xH\cap yH=\emptyset\).
+    D.\ h.\ dass \(x\sim y :\Leftrightarrow xy^{-1}\in H\) eine Äquivalenzrelation auf \(G\) definiert.
+  \end{enumerate}
+\end{bemerkung}
+
+\begin{beispiel}
+  Sei \(U\coloneq n\Z\subseteq \Z\) mit \(n\in\N, n>0\) eine der aus \Cref{untergruppen-von-ZZ-und matrizengruppen} bekannten Untergruppen.
+  Dann ist jede Linksnebenklasse identisch zu genau einer der folgenden Linksnebenklassen:
+  \[\Z=0+U, 1+U,\dots, (n-1)+U. \]
+\end{beispiel}
+
+\begin{definition}
+  Sei \(G\) eine Gruppe und \(N\subseteq G\) Untergruppe.
+  \begin{enumerate}
+  \item \(U\) heißt \begriff{Normalteiler}, wenn für alle \(g\in G\) gilt:
+  \[gN=Ng.\]
+\item \(G/N\)\index{\(G/N\)} bezeichnet den Quotienten der Menge \(G\) nach der Äquivalenzrelation \(g\sim h \Leftrightarrow gh^{-1}\in N\). Wenn \(N\) Normalteiler ist, heißt \(G/N\) \begriff{Faktorgruppe}. 
+  \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+  \begin{enumerate}[(a)]
+  \item Sei \(A\) abelsche Gruppe. Dann ist jede Untergruppe auch Normalteiler.
+  \end{enumerate}
+\end{beispiel}
+
+\begin{bemerkung}
+  Sei \(G\) Gruppe und \(N\subseteq G\) Normalteiler. Dann ist durch
+  \[
+    gN\cdot hN\coloneq ghN
+  \]
+  eine Verknüpfung auf \(G/N\) gegeben, sodass \(G/N\) mit dieser Verknüpfung eine Gruppe ist.
+  Die Abbildung \(g\mapsto gN:G\to G/N\) ist ein Gruppenhomomorphismus.
+\end{bemerkung}
