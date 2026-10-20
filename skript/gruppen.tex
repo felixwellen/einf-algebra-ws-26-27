@@ -147,7 +147,7 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
 \begin{beweis}
   \(f(e_1)=f(e_1e_1)=f(e_1)f(e_1)\) also \(e_2=f(e_1)\). \(e_2=f(xx^{-1})=f(x)f(x^{-1})\), also \(f(x^{-1})=f(x)^{-1}\) wegen Eindeutigkeit von Inversen.
 \end{beweis}
-\rednote{Hier hat die Vorlesung am 16.10.2026 geendet.}
+
 \begin{beispiel}
   \label{bsp-homs}
   \begin{enumerate}[(a)]
@@ -159,16 +159,22 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
   \end{enumerate}
 \end{beispiel}
 
+\begin{konvention}
+  Sei \(G\) eine Gruppe und \(H\subseteq G\)
+  Wir schreiben \(H<G\), wenn \(H\) eine Untergruppe von \(G\) ist.
+\end{konvention}
+
 \begin{lemma}
-  Sei \(f:G\to H\) Gruppenhomomorphismus und \(e_2\) das Neutralelement in \(H\).
+  Seien \((G,\cdot,e_G)\) und \((H,\cdot,e_H\) Gruppen.
+  Sei \(f:G\to H\) Gruppenhomomorphismus.
   \begin{enumerate}[(a)]
   \item Es sind
   \begin{align*}
-    &\Bild(f):=f(G)\subseteq H \text{ und }\\
-    &\Kern(f):=\{x\in G\mid f(x)=e_2\}\subseteq G
+    &\Bild(f):=f(G)< H \text{ und }\\
+    &\Kern(f):=\{x\in G\mid f(x)=e_H\}< G
   \end{align*}
   jeweils Untergruppen.
-  \item \(f\) ist genau dann injektiv, wenn \(\Kern(f)=\{0\}\) gilt.
+  \item \(f\) ist genau dann injektiv, wenn \(\Kern(f)=\{e_G\}\) gilt.
   \item Jede Gruppe ist (bis auf Isomorphismus) Untergruppe einer Permutationsgruppe.
   \end{enumerate}
 \end{lemma}
@@ -186,7 +192,13 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
 
 \subsection{Faktorgruppen}
 
-\begin{bemerkung}
+\begin{konvention}
+  \(\# M\)\index{\(\# M\)} bezeichnet die Anzahl der Elemente einer Menge \(M\).
+  Für unendliche Mengen setzen wir \(\# M=\infty\) und verwenden die Rechenregeln \(x\cdot \infty=\infty=\infty\cdot x\) für \(x\in\N\cup\{\infty\}\).
+\end{konvention}
+
+\begin{lemma}
+  \label{lemma-zu-nebenklassen}
   Sei \(G\) eine Gruppe, \(H\subseteq G\) Untergruppe und \(g\in G\).
   Eine Teilmenge der Form
   \[gH\coloneq \{gh\in G\mid h\in H\}\]
@@ -196,15 +208,50 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
   \item \(xH=yH\) genau dann wenn \(y^{-1}x\in H\). 
   \item Für alle \(x,y\in G\) gilt \(xH=yH\) oder \(xH\cap yH=\emptyset\).
     D.\ h.\ dass \(x\sim y :\Leftrightarrow y^{-1}x\in H\) eine Äquivalenzrelation auf \(G\) definiert.
-  \item \(G\) ist disjunkte Vereinigung der Linksnebenklassen von \(H\).
   \end{enumerate}
-\end{bemerkung}
+\end{lemma}
+\rednote{Stand nach VL vom 20.10.2026: b,c bewiesen, aber a noch nicht.}
+\begin{beweis}
+  \begin{enumerate}[(a)]
+  \item \ref{bsp-homs} \ref{bsp-translation} liefert Bijektion \(H\to gH\) für jedes \(g\in G\).
+  \item \(xH=yH \Leftrightarrow
+    \exists u,v\in H. xu=yv
+    \Leftrightarrow \exists u,v\in H. y^{-1}x=vu^{-1}
+    \Leftrightarrow y^{-1}x\in H\)
+  \end{enumerate}
+\end{beweis}
+
+\begin{definition}
+  Sei \(G\) eine Gruppe und \(H<G\).
+  \begin{enumerate}[(a)]
+  \item Wir bezeichnen mit \(G/H\)\index{\(G/H\)} die Menge der Linksnebenklassen von \(H\).
+  \item Die Zahl \((G : H)\coloneq \# G/H\)\index{\((G : H)\)} heißt \begriff{index} von \(H\) in \(G\).
+  \end{enumerate}
+\end{definition}
+
+\begin{satz}
+  Sei \(G\) eine Gruppe und \(H\) eine Untergruppe von \(G\).
+  \begin{enumerate}[(a)]
+  \item \(G\) ist die disjunkte Vereinigung der Linksnebenklassen von \(H\).
+  \item Es gilt: \(\# G=(G : H)\cdot \# H\). (``Satz von Lagrange'')
+  \end{enumerate}
+\end{satz}
+
+\begin{beweis}
+  Folgt aus \ref{lemma-zu-nebenklassen}.
+\end{beweis}
 
 \begin{beispiel}
   Sei \(U\coloneq n\Z\subseteq \Z\) mit \(n\in\N, n>0\) eine der aus \Cref{untergruppen-von-ZZ-und matrizengruppen} bekannten Untergruppen.
   Dann ist jede Linksnebenklasse identisch zu genau einer der folgenden Linksnebenklassen:
   \[0+U, 1+U,\dots, (n-1)+U. \]
 \end{beispiel}
+
+\begin{beobachtung}
+  \(\Z/n\Z\) ist für \(n\in\N\) mit Addition von Linksnebenklassen wieder eine Gruppe.
+\end{beobachtung}
+
+Im Allgemeinen Fall muss eine Untergruppe \(H<G\) ein \emph{Normalteiler} sein, damit \(G/H \) auf eine natürliche Art wieder eine Gruppe ist:
 
 \begin{definition}
   Sei \(G\) eine Gruppe und \(N\subseteq G\) Untergruppe.

@@ -48,6 +48,7 @@
     \newtheorem{fakt}[satz]{Fakt}
     \newtheorem{beispiel}[satz]{Beispiel}
     \newtheorem{korollar}[satz]{Korollar}
+    \newtheorem{beobachtung}[satz]{Beobachtung}
 
 \theoremstyle{nonumberplain}
 \theoremsymbol{\ensuremath{\Box}}
@@ -56,5 +57,14 @@
 % Theoremendesymbol resetten, damit es nicht in Nutzerdefinierte Umgebungen leaked
 \theoremsymbol{}    
 \raggedbottom
+
+\crefname{satz}{Satz}{Sätze}
+\Crefname{satz}{Satz}{Sätze}
+\crefname{definition}{Definition}{Definitionen}
+\Crefname{definition}{Definition}{Definitionen}
+\crefname{lemma}{Lemma}{Lemmata}
+\Crefname{lemma}{Lemma}{Lemmata}
+\crefname{bemerkung}{Bemerkung}{Bemerkungen}
+\Crefname{bemerkung}{Bemerkung}{Bemerkungen}
 
 \RequirePackage{../util/algebra}
