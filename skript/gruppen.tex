@@ -153,7 +153,7 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
   \begin{enumerate}[(a)]
   \item Sei \(M\) Monoid und \(x\in M\), dann ist \(n\mapsto x^n:\N\to M\) ein Monoidhomomorphismus.
   \item Sei \(G\) Gruppe und \(x\in G\), dann ist \(k\mapsto x^k:\Z\to G\) ein Gruppenhomomorphismus, wobei wir für \(k<0\) festlegen: \(x^k:=(x^{|k|})^{-1}\).
-  \item Aus der Analysis ist der Gruppenisomorphismus \(e:(\R,+)\to (\R\setminus \{0\},\cdot)\) bekannt.
+  \item Aus der Analysis ist der Gruppenisomorphismus \(e:(\R,+)\to (\R_{>0},\cdot)\) bekannt.
   \item\label{bsp-translation} Sei \((G,\cdot)\) eine Gruppe und \(g\in G\).
     Die Abbildung \(\tau_g:= h\mapsto gh :G\to G\) heißt \begriff{Linkstranslation} (mit \(g\)). Das liefert den Gruppenhomomorphismus \(g\mapsto \tau_g: (G,\cdot)\to (S(G),\circ)\).
   \end{enumerate}
@@ -205,12 +205,10 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
   nennen wir \begriff{Linksnebenklasse} und entsprechend \(Hg\coloneq\{hg\mid h\in H\}\) \begriff{Rechtsnebenklasse}. Es gilt:
   \begin{enumerate}[(a)]
   \item Zwischen je zwei Linksnebenklassen gibt es eine Bijektion.
-  \item \(xH=yH\) genau dann wenn \(y^{-1}x\in H\). 
-  \item Für alle \(x,y\in G\) gilt \(xH=yH\) oder \(xH\cap yH=\emptyset\).
-    D.\ h.\ dass \(x\sim y :\Leftrightarrow y^{-1}x\in H\) eine Äquivalenzrelation auf \(G\) definiert.
+  \item \(xH=yH\) genau dann wenn \(xH\cap yH\neq \emptyset\) genau dann wenn  \(y^{-1}x\in H\). 
   \end{enumerate}
 \end{lemma}
-\rednote{Stand nach VL vom 20.10.2026: b,c bewiesen, aber a noch nicht.}
+\rednote{Stand nach VL vom 20.10.2026: b bewiesen, aber a noch nicht.}
 \begin{beweis}
   \begin{enumerate}[(a)]
   \item \ref{bsp-homs} \ref{bsp-translation} liefert Bijektion \(H\to gH\) für jedes \(g\in G\).
