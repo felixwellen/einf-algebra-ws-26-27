@@ -204,19 +204,19 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
   \[gH\coloneq \{gh\in G\mid h\in H\}\]
   nennen wir \begriff{Linksnebenklasse} und entsprechend \(Hg\coloneq\{hg\mid h\in H\}\) \begriff{Rechtsnebenklasse}. Es gilt:
   \begin{enumerate}[(a)]
-  \item Zwischen je zwei Linksnebenklassen gibt es eine Bijektion.
   \item\label{nbkl-aequivrel} \(xH=yH\) genau dann wenn \(xH\cap yH\neq \emptyset\) genau dann wenn  \(y^{-1}x\in H\). 
+  \item Zwischen je zwei Linksnebenklassen gibt es eine Bijektion.
   \item \(G\) ist die disjunkte Vereinigung der Linksnebenklassen von \(H\).
   \end{enumerate}
 \end{lemma}
 \rednote{Stand nach VL vom 20.10.2026: b bewiesen, aber a noch nicht.}
 \begin{beweis}
   \begin{enumerate}[(a)]
-  \item \ref{bsp-homs} \ref{bsp-translation} liefert Bijektion \(H\to gH\) für jedes \(g\in G\).
   \item Zuerst die zweite Äquivalenz: \(xH\cap yH\neq\emptyset \Leftrightarrow
     \exists u,v\in H. xu=yv
     \Leftrightarrow \exists u,v\in H. y^{-1}x=vu^{-1}
     \Leftrightarrow y^{-1}x\in H\)
+  \item \ref{bsp-homs} \ref{bsp-translation} liefert Bijektion \(H\to gH\) für jedes \(g\in G\).
   \item Folgt aus \cref{nbkl-aequivrel}, mit der Festellung, dass jedes \(g\in G\) in einer Linksnebenklasse enthalten ist (nämlich in \(gH\)).
   \end{enumerate}
 \end{beweis}
@@ -225,7 +225,7 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
   Sei \(G\) eine Gruppe und \(H<G\).
   \begin{enumerate}[(a)]
   \item Wir bezeichnen mit \(G/H\)\index{\(G/H\)} die Menge der Linksnebenklassen von \(H\).
-  \item Die Zahl \((G : H)\coloneq \# G/H\)\index{\((G : H)\)} heißt \begriff{index} von \(H\) in \(G\).
+  \item Die Zahl \((G : H)\coloneq \# G/H\)\index{\((G : H)\)} heißt \begriff{Index} von \(H\) in \(G\).
   \end{enumerate}
 \end{definition}
 
