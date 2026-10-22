@@ -205,17 +205,19 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
   nennen wir \begriff{Linksnebenklasse} und entsprechend \(Hg\coloneq\{hg\mid h\in H\}\) \begriff{Rechtsnebenklasse}. Es gilt:
   \begin{enumerate}[(a)]
   \item Zwischen je zwei Linksnebenklassen gibt es eine Bijektion.
-  \item \(xH=yH\) genau dann wenn \(xH\cap yH\neq \emptyset\) genau dann wenn  \(y^{-1}x\in H\). 
+  \item\label{nbkl-aequivrel} \(xH=yH\) genau dann wenn \(xH\cap yH\neq \emptyset\) genau dann wenn  \(y^{-1}x\in H\). 
+  \item \(G\) ist die disjunkte Vereinigung der Linksnebenklassen von \(H\).
   \end{enumerate}
 \end{lemma}
 \rednote{Stand nach VL vom 20.10.2026: b bewiesen, aber a noch nicht.}
 \begin{beweis}
   \begin{enumerate}[(a)]
   \item \ref{bsp-homs} \ref{bsp-translation} liefert Bijektion \(H\to gH\) für jedes \(g\in G\).
-  \item \(xH=yH \Leftrightarrow
+  \item Zuerst die zweite Äquivalenz: \(xH\cap yH\neq\emptyset \Leftrightarrow
     \exists u,v\in H. xu=yv
     \Leftrightarrow \exists u,v\in H. y^{-1}x=vu^{-1}
     \Leftrightarrow y^{-1}x\in H\)
+  \item Folgt aus \cref{nbkl-aequivrel}, mit der Festellung, dass jedes \(g\in G\) in einer Linksnebenklasse enthalten ist (nämlich in \(gH\)).
   \end{enumerate}
 \end{beweis}
 
@@ -227,12 +229,9 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
   \end{enumerate}
 \end{definition}
 
-\begin{satz}
-  Sei \(G\) eine Gruppe und \(H\) eine Untergruppe von \(G\).
-  \begin{enumerate}[(a)]
-  \item \(G\) ist die disjunkte Vereinigung der Linksnebenklassen von \(H\).
-  \item Es gilt: \(\# G=(G : H)\cdot \# H\). (``Satz von Lagrange'')
-  \end{enumerate}
+\begin{satz}[Satz von Lagrange]
+  Sei \(G\) eine Gruppe und \(H\) eine Untergruppe von \(G\), dann gilt:
+  \[\# G=(G : H)\cdot \# H\]
 \end{satz}
 
 \begin{beweis}
@@ -255,8 +254,9 @@ Im Allgemeinen Fall muss eine Untergruppe \(H<G\) ein \emph{Normalteiler} sein, 
   Sei \(G\) eine Gruppe und \(N\subseteq G\) Untergruppe.
   \begin{enumerate}
   \item \(U\) heißt \begriff{Normalteiler}, wenn für alle \(g\in G\) gilt:
-  \[gN=Ng.\]
-\item \(G/N\)\index{\(G/N\)} bezeichnet die Menge der Linksnebenklassen von \(N\) in \(G\). Wenn \(N\) Normalteiler ist, heißt \(G/N\) \begriff{Faktorgruppe}. 
+    \[gN=Ng.\]
+    Äquivalent können wir fordern, dass für alle \(g\in G\) und \(n\in N\) gilt: \(gng^{-1}\in N\).
+\item Wenn \(N\) Normalteiler ist, heißt \(G/N\) \begriff{Faktorgruppe}. 
   \end{enumerate}
 \end{definition}
 
@@ -278,19 +278,46 @@ Mit dem selben Ergebnis hätten wir \(G/N\) als den Quotienten der Menge \(G\) n
       2 & 1 & 3
     \end{array}
     \right)\). Dann ist die Teilmenge \(\{\id,\tau_{12}\}\) eine Untergruppe, die kein Normalteiler ist.
-  \item Sei \(f:G\to H\) eine Gruppenhomomorphismus. Dann ist \(\Kern(f)\) ein Normalteiler in \(G\).
+  \item Sei \(f:G\to H\) eine Gruppenhomomorphismus. Dann ist \(\Kern(f)\) ein Normalteiler in \(G\). Um das zu sehen, halten wir zunächst fest, dass eine beliebige Untergruppe \(N<G\) genau dann ein Normalteiler ist, wenn \(N=gNg^{-1}\) für alle \(g\in G\) gilt. Es reicht also zu zeigen, dass für alle \(g\in G\) und \(x\in \Kern(f)\) gilt: \(gxg^{-1}\in \Kern(f)\). Das ist einfach so, weil: \(f(gxg^{-1})=f(g)f(x)f(g^{-1})=e\), also \(gxg^{-1}\in\Kern(f)\).
   \end{enumerate}
 \end{beispiel}
 
-\begin{bemerkung}
-  Sei \(G\) Gruppe und \(N\subseteq G\) Normalteiler. Dann ist durch
-  \[
+\begin{definition}
+  Sei \(G\) Gruppe und \(N\subseteq G\) Normalteiler.
+  \begin{enumerate}[(i)]
+  \item Durch
+    \[
     gN\cdot hN\coloneq ghN
-  \]
-  eine Verknüpfung auf \(G/N\) gegeben, sodass \(G/N\) mit dieser Verknüpfung eine Gruppe ist.
-  Die Abbildung \(g\mapsto gN:G\to G/N\) ist ein Gruppenhomomorphismus.
-\end{bemerkung}
+    \]
+    ist eine Verknüpfung auf \(G/N\) gegeben,
+    sodass \(G/N\) mit dieser Verknüpfung eine Gruppe ist.
+  \item Die Abbildung \(\pi\coloneq g\mapsto gN:G\to G/N\) ist ein Gruppenhomomorphismus.
+  \end{enumerate}
+\end{definition}
 
 \begin{beweis}
-  \((aN) \cdot (bN)=\{a\}\cdot N\cdot bN=\{a\}\cdot Nb \cdot N=\{a\}\cdot bN \cdot N=\{ab\}\cdot N \cdot N=abN\)
+  \begin{enumerate}[(i)]
+  \item \((aN) \cdot (bN)=\{a\}\cdot N\cdot bN=\{a\}\cdot Nb \cdot N=\{a\}\cdot bN \cdot N=\{ab\}\cdot N \cdot N=abN\)
+  \item \(\pi(gh)=\pi(g)\pi(h)\).
+  \end{enumerate}
 \end{beweis}
+
+\begin{bemerkung}
+  Im Fall \(N=\Kern(f)\) für Gruppenhomomorphismus \(f:G\to H\), ist \(G/\Kern(f)\) isomorph zu \(\Bild(f)\).
+\end{bemerkung}
+
+Das zeigen wir gleich allgemeiner:
+
+\begin{satz}[Homomorphiesatz]
+  Es seien \(f:G\to H\) ein Gruppenhomomorphismus und \(N\subseteq G\) ein Normalteiler mit \(N\subseteq \Kern(f)\).
+  Dann existiert ein eindeutiger Gruppenhomomorphismus \(\bar{f}:G/N\to H\)
+  mit \(\bar{f}\circ\pi=f\):
+  \begin{center}
+    \begin{tikzcd}
+      G\ar[rr,"f"]\ar[rd,"\pi",swap] & & H \\
+       & G/N\ar[ru,"\bar{f}",swap] &
+    \end{tikzcd}
+  \end{center}
+  Es gilt: \(\Bild(f)=\Bild(\bar{f})\), \(\Kern(\bar{f})=\pi(\Kern(f))\)
+  und \(\Kern(f)=\pi^{-1}(\Kern(\bar{f}))\).
+\end{satz}
