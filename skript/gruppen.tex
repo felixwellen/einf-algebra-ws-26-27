@@ -193,8 +193,8 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
 \subsection{Faktorgruppen}
 
 \begin{konvention}
-  \(\# M\)\index{\(\# M\)} bezeichnet die Anzahl der Elemente einer Menge \(M\).
-  Für unendliche Mengen setzen wir \(\# M=\infty\) und verwenden die Rechenregeln \(x\cdot \infty=\infty=\infty\cdot x\) für \(x\in\N\cup\{\infty\}\).
+  \(|M|\) bezeichnet die Anzahl der Elemente einer Menge \(M\).
+  Für unendliche Mengen setzen wir \(|M|=\infty\) und verwenden die Rechenregeln \(x\cdot \infty=\infty=\infty\cdot x\) für \(x\in\N\cup\{\infty\}\).
 \end{konvention}
 
 \begin{lemma}
@@ -205,8 +205,8 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
   nennen wir \begriff{Linksnebenklasse} und entsprechend \(Hg\coloneq\{hg\mid h\in H\}\) \begriff{Rechtsnebenklasse}. Es gilt:
   \begin{enumerate}[(a)]
   \item\label{nbkl-aequivrel} \(xH=yH\) genau dann wenn \(xH\cap yH\neq \emptyset\) genau dann wenn  \(y^{-1}x\in H\). 
-  \item Zwischen je zwei Linksnebenklassen gibt es eine Bijektion.
   \item \(G\) ist die disjunkte Vereinigung der Linksnebenklassen von \(H\).
+  \item Zwischen je zwei Linksnebenklassen gibt es eine Bijektion.
   \end{enumerate}
 \end{lemma}
 \rednote{Stand nach VL vom 20.10.2026: b bewiesen, aber a noch nicht.}
@@ -216,8 +216,8 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
     \exists u,v\in H. xu=yv
     \Leftrightarrow \exists u,v\in H. y^{-1}x=vu^{-1}
     \Leftrightarrow y^{-1}x\in H\)
-  \item \ref{bsp-homs} \ref{bsp-translation} liefert Bijektion \(H\to gH\) für jedes \(g\in G\).
   \item Folgt aus \cref{nbkl-aequivrel}, mit der Festellung, dass jedes \(g\in G\) in einer Linksnebenklasse enthalten ist (nämlich in \(gH\)).
+  \item \ref{bsp-homs} \ref{bsp-translation} liefert Bijektion \(H\to gH\) für jedes \(g\in G\).
   \end{enumerate}
 \end{beweis}
 
@@ -225,13 +225,17 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
   Sei \(G\) eine Gruppe und \(H<G\).
   \begin{enumerate}[(a)]
   \item Wir bezeichnen mit \(G/H\)\index{\(G/H\)} die Menge der Linksnebenklassen von \(H\).
-  \item Die Zahl \((G : H)\coloneq \# G/H\)\index{\((G : H)\)} heißt \begriff{Index} von \(H\) in \(G\).
+  \item Die Zahl \((G : H)\coloneq |G/H|\)\index{\((G : H)\)} heißt \begriff{Index} von \(H\) in \(G\).
+  \item Wir nennen \(\ord(G)\coloneq |G|\)\index{\(\ord\)} die \begriff{Ordnung} von \(G\).
   \end{enumerate}
 \end{definition}
 
 \begin{satz}[Satz von Lagrange]
   Sei \(G\) eine Gruppe und \(H\) eine Untergruppe von \(G\), dann gilt:
-  \[\# G=(G : H)\cdot \# H\]
+  \begin{align*}
+    |G|&=|G/H |\cdot |H| \\
+    \llap{\text{bzw.\quad }}\ord(G)&=(G : H)\cdot \ord(H)
+  \end{align*}
 \end{satz}
 
 \begin{beweis}
@@ -242,25 +246,18 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
   Sei \(U\coloneq n\Z\subseteq \Z\) mit \(n\in\N, n>0\) eine der aus \Cref{untergruppen-von-ZZ-und matrizengruppen} bekannten Untergruppen.
   Dann ist jede Linksnebenklasse identisch zu genau einer der folgenden Linksnebenklassen:
   \[0+U, 1+U,\dots, (n-1)+U. \]
+  \textbf{Beobachtung: } \(\Z/n\Z\) ist für \(n\in\N\) mit Addition von Linksnebenklassen also \((k+U)+^\prime (l+U)\coloneq (k+l)+U\) wieder eine Gruppe.
 \end{beispiel}
 
-\begin{beobachtung}
-  \(\Z/n\Z\) ist für \(n\in\N\) mit Addition von Linksnebenklassen wieder eine Gruppe.
-\end{beobachtung}
-
-Im Allgemeinen Fall muss eine Untergruppe \(H<G\) ein \emph{Normalteiler} sein, damit \(G/H \) auf eine natürliche Art wieder eine Gruppe ist:
+Im Allgemeinen Fall muss eine Untergruppe \(H<G\) ein \emph{Normalteiler} sein, damit \(G/H\) auf eine natürliche Art wieder eine Gruppe ist:
 
 \begin{definition}
   Sei \(G\) eine Gruppe und \(N\subseteq G\) Untergruppe.
-  \begin{enumerate}
-  \item \(U\) heißt \begriff{Normalteiler}, wenn für alle \(g\in G\) gilt:
+  \(U\) heißt \begriff{Normalteiler}, wenn für alle \(g\in G\) gilt:
     \[gN=Ng.\]
     Äquivalent können wir fordern, dass für alle \(g\in G\) und \(n\in N\) gilt: \(gng^{-1}\in N\).
-\item Wenn \(N\) Normalteiler ist, heißt \(G/N\) \begriff{Faktorgruppe}. 
-  \end{enumerate}
+    Wir schreiben in diesem Fall \(N\triangleleft G\)\index{\(N\triangleleft G\)}.
 \end{definition}
-
-Mit dem selben Ergebnis hätten wir \(G/N\) als den Quotienten der Menge \(G\) nach der Äquivalenzrelation \(g\sim h \Leftrightarrow h^{-1}g\in N\) definieren können. 
 
 \begin{beispiel}
   \begin{enumerate}[(a)]
@@ -291,6 +288,7 @@ Mit dem selben Ergebnis hätten wir \(G/N\) als den Quotienten der Menge \(G\) n
     \]
     ist eine Verknüpfung auf \(G/N\) gegeben,
     sodass \(G/N\) mit dieser Verknüpfung eine Gruppe ist.
+    Wir nennen \(G/N\) mit dieser Verknüpfung \begriff{Faktorgruppe}.
   \item Die Abbildung \(\pi\coloneq g\mapsto gN:G\to G/N\) ist ein Gruppenhomomorphismus.
   \end{enumerate}
 \end{definition}
@@ -302,10 +300,7 @@ Mit dem selben Ergebnis hätten wir \(G/N\) als den Quotienten der Menge \(G\) n
   \end{enumerate}
 \end{beweis}
 
-\begin{bemerkung}
   Im Fall \(N=\Kern(f)\) für Gruppenhomomorphismus \(f:G\to H\), ist \(G/\Kern(f)\) isomorph zu \(\Bild(f)\).
-\end{bemerkung}
-
 Das zeigen wir gleich allgemeiner:
 
 \begin{satz}[Homomorphiesatz]
