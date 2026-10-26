@@ -231,6 +231,7 @@ Es gibt die zusätzlichen Unterscheidungen zwischen links- und rechtsneutral bzw
 \end{definition}
 
 \begin{satz}[Satz von Lagrange]
+  \label{lagrange}
   Sei \(G\) eine Gruppe und \(H\) eine Untergruppe von \(G\), dann gilt:
   \begin{align*}
     |G|&=|G/H |\cdot |H| \\
@@ -304,6 +305,7 @@ Im Allgemeinen Fall muss eine Untergruppe \(H<G\) ein \emph{Normalteiler} sein, 
 Das zeigen wir gleich allgemeiner:
 
 \begin{satz}[Homomorphiesatz]
+  \label{homomorphiesatz}
   Es seien \(f:G\to H\) ein Gruppenhomomorphismus und \(N\subseteq G\) ein Normalteiler mit \(N\subseteq \Kern(f)\).
   Dann existiert ein eindeutiger Gruppenhomomorphismus \(\bar{f}:G/N\to H\)
   mit \(\bar{f}\circ\pi=f\):
@@ -378,6 +380,23 @@ Wir bereiten den Beweis der Isomorphiesätze vor:
   \(\Z/n\Z\), insbesondere auch für \(n=0, n=1\).
 \end{beispiel}
 
+\begin{bemerkung}
+  Seien \(G\) eine Gruppe.
+  \begin{enumerate}[(a)]
+  \item Für \(X\subseteq G\) gilt
+    \[
+      \langle X\rangle= \{x_1^{\epsilon_1}\cdots x_n^{\epsilon_n}\mid n\in \N, x_i\in X, \epsilon\in\{-1,1\}\}.
+    \]
+  \item Insbesondere gilt für jedes \(x\in G\): \(\langle x\rangle = \{x^n\mid n\in \Z\}\).
+  \end{enumerate}
+\end{bemerkung}
+
+Wir werden (a) nicht verwenden und beweisen nur (b).
+
+\begin{beweis}
+  \(U\coloneq \{x^n\mid n\in \Z\}\) ist eine Untergruppe von \(G\), weil es das Bild des Homomorphismus' \((k\mapsto x^k):\Z\to G\) ist. Es gilt \(x\in U\), also ist \(U\) im Durschnitt aus der Definition des Erzeugnisses eingeschlossen. Andererseits, muss jede Untergruppe von \(G\), die \(x\) enthält auch jedes Element von \(U\) enthalten. Also gilt \(\langle x\rangle=U\).
+\end{beweis}
+
 \begin{lemma}
   \begin{enumerate}[(a)]
   \item Eine Gruppe \(G\) ist genau dann zyklisch,
@@ -389,7 +408,45 @@ Wir bereiten den Beweis der Isomorphiesätze vor:
 
 \begin{beweis}
   \begin{enumerate}[(a)]
-  \item Sei \(\langle x\rangle=G\) und \(f\coloneq k\mapsto x^k\).
-    Dann ist \(\Bild(f)\) eine Untergruppe von \(G\), die \(x\) enthält.
+  \item Sei \(\langle x\rangle<G\) und \(f\coloneq k\mapsto x^k\).
+    Dann ist \(f\) genau dann surjektiv, wenn \(\langle x\rangle=G\) gilt.
+  \item Wenn \(G\) zyklisch ist, gibt es nach (a) einen surjektiven Homomorphismus \(g:\Z\to G\). Dann ist \(f\circ g:\Z\to H\) surjektiver Homomorphismus.
+  \item Sei \(g:\Z\to G\) surjektiv, dann ist \(g|g^{-1}(H):n\Z\to G\) surjektiver Homomorphismus. Multiplikation mit \(n\) ist surjektiver Homomorphismus \(\Z\to n\Z\).
   \end{enumerate}
 \end{beweis}
+
+\begin{satz}
+  Sei \(G\) eine zyklische Gruppe, dann gilt \(G\cong \Z\),
+  falls \(\ord(G)=\infty\) und \(G=\Z/m\Z\), falls \(\ord(G)<\infty\).
+\end{satz}
+
+\begin{beweis}
+  Sei \(\Z\to G\) surjektiv.
+  Die Untergruppe \(\Kern(f)<\Z\) ist nach
+  \ref{untergruppen-von-ZZ-und matrizengruppen}
+  von der Form \(m\Z\).
+  Also gilt nach dem Homomorphiesatz \ref{homomorphiesatz} \(G\cong \Z/m\Z\).
+\end{beweis}
+
+\begin{definition}
+  Sei \(G\) eine Gruppe und \(x\in G\).
+  Die \begriff{Ordnung} \(\ord(x)\) von \(x\) ist die Ordnung der Gruppe \(\langle x\rangle\).
+  Äquivalent ist die Ordnung das kleinste postive \(n\in \N\),
+  sodass \(x^n=1\) gilt und \(\infty\), falls es kein solches \(n\) gibt.
+\end{definition}
+
+\begin{satz}[Kleiner Satz von Fermat]
+  Sei \(G\) eine endliche Gruppe und \(x\in G\).
+  Dann ist \(\ord(x)\) ein Teiler von \(\ord(G)\) und es gilt \(x^{\ord(G)}=1\).
+\end{satz}
+
+\begin{beweis}
+  Die erste Behauptung folgt direkt mit dem Satz von Lagrange \ref{lagrange}.
+  Sei \(l\in\N\) sodass \(l\cdot \ord(x)=\ord(G)\).
+  Dann gilt \(x^{l\cdot \ord(x)}=(x^{\ord(x)})^l=1^l=1\).
+\end{beweis}
+
+\begin{korollar}
+  Gilt \(\ord(G)=p\) für eine Primzahl \(p\),
+  so hat jedes Element \(k\in G\) mit \(k\neq 1\) Ordnung \(p\) und erzeugt bereits \(G\).
+\end{korollar}
