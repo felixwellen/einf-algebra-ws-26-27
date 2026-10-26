@@ -313,8 +313,83 @@ Das zeigen wir gleich allgemeiner:
        & G/N\ar[ru,"\bar{f}",swap] &
     \end{tikzcd}
   \end{center}
-  Es gilt: \(\Bild(f)=\Bild(\bar{f})\), \(\Kern(\bar{f})=\pi(\Kern(f))\)
-  und \(\Kern(f)=\pi^{-1}(\Kern(\bar{f}))\).
+  Es gilt:
+  \begin{itemize}
+  \item \(\Bild(f)=\Bild(\bar{f})\), \(\Kern(\bar{f})=\pi(\Kern(f))\)
+    und \(\Kern(f)=\pi^{-1}(\Kern(\bar{f}))\).
+  \item \(\bar{f}\) ist genau dann injektiv, wenn \(\Kern(f)=\{e_G\}\).
+  \end{itemize}
 \end{satz}
 
+\begin{beweis}
+  Wir beweise nur die eindeutige Existenz, die zusätzlichen Aussagen sollten alle vergleichsweise einfach zu zeigen sein.
+
+  Sei dazu \(e_H\) das neutrale Element in \(H\).
+  \(\bar{f} \circ \pi=f\) bedeutet ja nichts anderes als dass für alle \(g\in G\) gilt:
+  \[\bar{f}(\pi(g))=\bar{f}(gN)=f(g)\]
+  Wenn diese Gleichung gilt, ist \(\bar{f}\) bereits eindeutig festgelegt und ein Homomorphismus, wir müssen also nur zeigen, dass \(\bar{f}\) durch \(\bar{f}(gN)=f(g)\) wohl-definiert ist. Seien also \(g,h\in G\) mit \(gN=hN\) gegeben. Dann gilt \(h^{-1}g\in N\subseteq \Kern(f)\) und damit \(e_H=f(h^{-1}g)=f(h)^{-1}f(g)\). Also \(f(h)=f(g)\).
+\end{beweis}
+
 \rednote{Stand nach VL vom 23.10.2026.}
+
+Wir bereiten den Beweis der Isomorphiesätze vor:
+
+\begin{lemma}
+  \begin{enumerate}[(a)]
+  \item Sei \(G\) Gruppe und \(H< G, N\triangleleft G\).
+    Dann ist \(HN<G\) eine Untergruppe.
+  \item Sei \(f:G\to H\) surjektiver Gruppenhomomorphismus, dann ist die induzierte Abbildung \(\bar{f}:G/\Kern(f)\to H\) ein Isomorphismus.
+  \end{enumerate}
+\end{lemma}
+
+\begin{satz}[1. Isomorphiesatz]\index{1. Isomorphiesatz}
+  Sei \(G\) Gruppe und \(H< G, N\triangleleft G\). Dann induziert
+  \begin{center}
+  \begin{tikzcd}
+    H\ar[r,"\subseteq"] & HN\ar[r,"\pi"] & HN/N 
+  \end{tikzcd}    
+  \end{center}
+  einen Isomorphismus \(H/H\cap N\to HN/N\).
+\end{satz}
+
+\begin{satz}[2. Isomorphiesatz]\index{2. Isomorphiesatz}
+  Seien \(G\) Gruppe, \(N,H\triangleleft G\) mit \(N\subseteq H\subseteq G\).
+  Dann wird durch mehrmaliges Anwenden des Homomorphiesatzes ein Isomorphismus
+  \begin{center}
+    \begin{tikzcd}
+      (G/N)/(H/N)\ar[r] & G/H
+    \end{tikzcd}
+  \end{center}
+  induziert.
+\end{satz}
+
+\subsection{Zyklische Gruppen}
+
+\begin{definition}
+  Seien \(G\) eine Gruppe und \(X\subseteq G\).
+  Dann ist die von \(X\) \begriff{erzeugte Untergruppe} \(\langle X\rangle\subseteq G\) der Schnitt aller Untergruppen von \(G\), die \(X\) enthalten.
+  \begin{enumerate}[(i)]
+  \item \(G\) heißt \begriff{endlich erzeugt}, wenn es eine endliche Teilmenge \(E\subseteq G\) gibt, sodass \(\langle E\rangle = G\) gilt.
+  \item \(G\) heißt \begriff{zyklisch}, wenn es \(x\in G\) gibt, sodass \(\langle x\rangle \coloneq \langle\{x\}\rangle =G\) gilt.
+  \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+  \(\Z/n\Z\), insbesondere auch für \(n=0, n=1\).
+\end{beispiel}
+
+\begin{lemma}
+  \begin{enumerate}[(a)]
+  \item Eine Gruppe \(G\) ist genau dann zyklisch,
+    wenn es \(x\in G\) gibt, sodass \(k\mapsto x^k:\Z\to G\) surjektiv ist.
+  \item Sei \(f:G\to H\) Homomorphismus von Gruppen und \(G\) zyklisch, dann ist auch \(\Bild(f)\) zyklisch.
+  \item Sei \(G\) eine zyklische Gruppe und \(H<G\), dann ist auch \(H\) zyklisch.
+  \end{enumerate}
+\end{lemma}
+
+\begin{beweis}
+  \begin{enumerate}[(a)]
+  \item Sei \(\langle x\rangle=G\) und \(f\coloneq k\mapsto x^k\).
+    Dann ist \(\Bild(f)\) eine Untergruppe von \(G\), die \(x\) enthält.
+  \end{enumerate}
+\end{beweis}
