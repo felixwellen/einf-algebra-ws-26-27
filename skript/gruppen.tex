@@ -455,3 +455,48 @@ Wir werden (a) nicht verwenden und beweisen nur (b).
   Gilt \(\ord(G)=p\) für eine Primzahl \(p\),
   so hat jedes Element \(k\in G\) mit \(k\neq 1\) Ordnung \(p\) und erzeugt bereits \(G\).
 \end{korollar}
+
+\subsection{Teilbarkeit und Beispiele}
+
+Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
+
+\begin{definition}
+  Seien \(k,l\in \Z\).
+  \begin{enumerate}[(a)]
+  \item Wir schreiben \(k|l\) und sagen \begriff{\(k\) teilt \(l\)},
+    wenn \(d\in\Z\) existiert sodass \(k\cdot d=l\) gilt.
+  \item \(\ggT(k,l)\coloneq \max \{c\in\N|\text{\(c\) teilt \(k\)
+    und \(c\) teilt \(l\)}\}\) heißt
+    \begriff{größter gemeinsamer Teiler}\index{\(\ggT\)}.
+  \item Der \begriff{Rest} von \(a\) bei Division mit \(b\) ist das kleinste \(r\in\N\) sodass \(a=lb+r\) für ein \(l\in\Z\) gilt.
+  \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+  Seien \(a,b,c\in \Z\).
+  \begin{enumerate}
+  \item Wenn \(a|b\), \(a|c\), dann auch \(a|b+c\)
+  \item \(\ggT(a,b)=\ggT(b,a)\)
+  \item \(\forall l\in \Z.\ggT(a,b)=\ggT(a,b-la)\)
+  \item \(\exists l,k\in\Z. la+kb=\ggT(a,b)\)
+  \end{enumerate}
+\end{lemma}
+
+\begin{beweis}
+  \begin{enumerate}
+  \item Durch Rechnung.
+  \item ``und'' ist kommutativ.
+  \item Verwende: (a)
+  \item Seien \(r_0\coloneq \max\{a,b\}\), \(r_1\coloneq \min\{a,b\}\) und \(r_{i+2}\) der Rest von \(r_{i}\) bei Division mit \(r_{i+1}\).
+    Es gilt: \(\ggT(a,b)=\ggT(r_i,r_{i+1}\) und \(r_i-r_{i+1}l=r_{i+2}\)
+  \end{enumerate}
+\end{beweis}
+
+
+\begin{beispiel}
+  Sei \(I\) Menge und \(G_i\) Gruppe für jedes \(i\in I\).
+  Dann ist
+  \[\prod_{i\in I}G_i\]
+  eine Gruppe.
+  Insbesondere sind \(G\times H\) und \(M\to G\) Gruppen.
+\end{beispiel}
