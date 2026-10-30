@@ -480,13 +480,13 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
 \begin{bemerkung}
   Seien \(a,b,c\in \Z\).
   \begin{enumerate}
-  \item Wenn \(a|b\), \(a|c\), dann auch \(a|b+c\)
+  \item Wenn \(a|b\), \(a|c\), dann auch \(a|b+c\). Außerdem \(a|0\) für beliebiges \(a\).
   \item \(\ggT(a,b)=\ggT(b,a)\)
   \item \(\ggT(a,0)=a\)
   \item \(\forall l\in \Z.\ggT(a,b)=\ggT(a,b-la)\)
   \item \(\kgV(a,b)=\frac{ab}{\ggT(a,b)}\)
-  \item \(\exists l,k\in\Z. la+kb=\ggT(a,b)\)
   \item Wenn \(b>0\) ist, dann gilt für den Rest \(r\) von \(a\) bei Division mit \(b\), \(r<b\).
+  \item \(\exists l,k\in\Z. la+kb=\ggT(a,b)\)
   \end{enumerate}
 \end{bemerkung}
 
@@ -494,7 +494,10 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
   \begin{enumerate}
   \item Durch Rechnung.
   \item ``und'' ist kommutativ.
-  \item Verwende: (a)
+  \item Verwende (a)
+  \item Verwende (a)
+  \item Übung
+  \item Direkt
   \item Wir nehmen \(a,b\geq 0\) an. Seien \(r_0\coloneq \max\{a,b\}\), \(r_1\coloneq \min\{a,b\}\) und \(r_{i+2}\) der Rest von \(r_{i}\) bei Division mit \(r_{i+1}\) sofern \(r_{i+1}>0\) gilt. Das definiert eine endliche Folge von Zahlen.
     Es gilt: \(\ggT(a,b)=\ggT(r_i,r_{i+1})\) und \(r_i-r_{i+1}l=r_{i+2}\).
     Außerdem gilt für \(i>0\) stets \(r_i>r_{i+1}\).
@@ -508,9 +511,9 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
     \(r(k+n\Z)\coloneq \) Rest von \(k\) bei Division mit \(n\) ist wohldefiniert und bijektiv. Also hat auch \(\{0,\dots,n-1\}\) eine Struktur als abelsche Gruppe, die durch Addition gegeben ist.
   \item Sei \(\langle x\rangle = G\) zyklische Gruppe. Dann hat \(g^k\in G\) die Ordnung \(\frac{n}{\ggT(k,n)}\).
   \item Die Multiplikation auf \(\Z\) induziert eine Monoidstruktur auf \(\Z/n\Z\).
+  \item Seien \(a,b\in\Z\). Die kleinste Untergruppe von \(\Z\), die \(a\) und \(b\) enthält ist \(\ggT(a,b)\cdot \Z\).
   \end{enumerate}
 \end{lemma}
-
 
 \begin{definition}
   \begin{enumerate}
