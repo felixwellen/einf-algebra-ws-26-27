@@ -461,42 +461,66 @@ Wir werden (a) nicht verwenden und beweisen nur (b).
 Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
 
 \begin{definition}
-  Seien \(k,l\in \Z\).
+  Seien \(a,b\in \Z\).
   \begin{enumerate}[(a)]
-  \item Wir schreiben \(k|l\) und sagen \begriff{\(k\) teilt \(l\)},
-    wenn \(d\in\Z\) existiert sodass \(k\cdot d=l\) gilt.
-  \item \(\ggT(k,l)\coloneq \max \{c\in\N|\text{\(c\) teilt \(k\)
-    und \(c\) teilt \(l\)}\}\) heißt
-    \begriff{größter gemeinsamer Teiler}\index{\(\ggT\)}.
-  \item Der \begriff{Rest} von \(a\) bei Division mit \(b\) ist das kleinste \(r\in\N\) sodass \(a=lb+r\) für ein \(l\in\Z\) gilt.
+  \item Wir schreiben \(a|b\) und sagen \begriff{\(a\) teilt \(b\)},
+    wenn \(d\in\Z\) existiert sodass \(a\cdot d=b\) gilt.
+  \item \(\ggT(a,b)\coloneq \max \{c\in\N|\text{\(c\) teilt \(a\)
+    und \(c\) teilt \(b\)}\}\) heißt
+    \begriff{größter gemeinsamer Teiler}\index{\(\ggT\)} von \(a\) und \(b\).
+  \item \(\kgV(a,b)\coloneq \min\{c\in\N|\text{\(a\) teilt \(c\)
+    und \(b\) teilt \(c\)}\}\)\index{\(\kgV\)} heißt \begriff{kleinstes gemeinensames Vielfaches}.
+  \item Sei \(b\neq 0\). Der \begriff{Rest} von \(a\) bei Division mit \(b\) ist das kleinste \(r\in\N\) sodass \(a=lb+r\) für ein \(l\in\Z\) gilt.
+  \item Wir schreiben\index{\(\equiv\)}
+    \[ a\equiv b \mod n \]
+    wenn \(a\) und \(b\) bei Division mit \(n\) den gleichen Rest lassen.
   \end{enumerate}
 \end{definition}
 
-\begin{lemma}
+\begin{bemerkung}
   Seien \(a,b,c\in \Z\).
   \begin{enumerate}
   \item Wenn \(a|b\), \(a|c\), dann auch \(a|b+c\)
   \item \(\ggT(a,b)=\ggT(b,a)\)
+  \item \(\ggT(a,0)=a\)
   \item \(\forall l\in \Z.\ggT(a,b)=\ggT(a,b-la)\)
+  \item \(\kgV(a,b)=\frac{ab}{\ggT(a,b)}\)
   \item \(\exists l,k\in\Z. la+kb=\ggT(a,b)\)
+  \item Wenn \(b>0\) ist, dann gilt für den Rest \(r\) von \(a\) bei Division mit \(b\), \(r<b\).
   \end{enumerate}
-\end{lemma}
+\end{bemerkung}
 
 \begin{beweis}
   \begin{enumerate}
   \item Durch Rechnung.
   \item ``und'' ist kommutativ.
   \item Verwende: (a)
-  \item Seien \(r_0\coloneq \max\{a,b\}\), \(r_1\coloneq \min\{a,b\}\) und \(r_{i+2}\) der Rest von \(r_{i}\) bei Division mit \(r_{i+1}\).
-    Es gilt: \(\ggT(a,b)=\ggT(r_i,r_{i+1}\) und \(r_i-r_{i+1}l=r_{i+2}\)
+  \item Wir nehmen \(a,b\geq 0\) an. Seien \(r_0\coloneq \max\{a,b\}\), \(r_1\coloneq \min\{a,b\}\) und \(r_{i+2}\) der Rest von \(r_{i}\) bei Division mit \(r_{i+1}\) sofern \(r_{i+1}>0\) gilt. Das definiert eine endliche Folge von Zahlen.
+    Es gilt: \(\ggT(a,b)=\ggT(r_i,r_{i+1})\) und \(r_i-r_{i+1}l=r_{i+2}\).
+    Außerdem gilt für \(i>0\) stets \(r_i>r_{i+1}\).
+    Das letzte Folgenglied ist stets 0 und das vorletzte \(\ggT(a,b)\).
   \end{enumerate}
 \end{beweis}
 
+\begin{lemma}
+  \begin{enumerate}
+  \item Sei \(n>0\). Die Abbildung \(r:\Z/n\Z\to \{0,\dots,n-1\}\) gegeben durch
+    \(r(k+n\Z)\coloneq \) Rest von \(k\) bei Division mit \(n\) ist wohldefiniert und bijektiv. Also hat auch \(\{0,\dots,n-1\}\) eine Struktur als abelsche Gruppe, die durch Addition gegeben ist.
+  \item Sei \(\langle x\rangle = G\) zyklische Gruppe. Dann hat \(g^k\in G\) die Ordnung \(\frac{n}{\ggT(k,n)}\).
+  \item Die Multiplikation auf \(\Z\) induziert eine Monoidstruktur auf \(\Z/n\Z\).
+  \end{enumerate}
+\end{lemma}
 
-\begin{beispiel}
-  Sei \(I\) Menge und \(G_i\) Gruppe für jedes \(i\in I\).
+
+\begin{definition}
+  \begin{enumerate}
+  \item Sei \(I\) Menge und \(G_i\) Gruppe für jedes \(i\in I\).
   Dann ist
   \[\prod_{i\in I}G_i\]
-  eine Gruppe.
+  eine Gruppe mit punktweise definierter Verknüpfung.
   Insbesondere sind \(G\times H\) und \(M\to G\) Gruppen.
-\end{beispiel}
+\item Sei \((M,\cdot,1)\) ein Monoid.
+  Eine \begriff{Einheit} in \(M\) ist ein Element, zu dem es ein Inverses gibt.
+  Wir bezeichnen die Gruppe der Einheiten in \(M\) mit \(M^\times\).
+  \end{enumerate}
+\end{definition}
