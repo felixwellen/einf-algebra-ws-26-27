@@ -466,6 +466,7 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
   \item \(\ggT(a,b)\coloneq \max \{c\in\N|\text{\(c\) teilt \(a\)
     und \(c\) teilt \(b\)}\}\) heißt
     \begriff{größter gemeinsamer Teiler}\index{\(\ggT\)} von \(a\) und \(b\).
+    \(a\) heißt \begriff{teilerfremd} zu \(b\), wenn \(\ggT(a,b)=1\) gilt.
   \item \(\kgV(a,b)\coloneq \min\{c\in\N|\text{\(a\) teilt \(c\)
     und \(b\) teilt \(c\)}\}\)\index{\(\kgV\)} heißt \begriff{kleinstes gemeinensames Vielfaches}.
   \item Sei \(b\neq 0\). Der \begriff{Rest} von \(a\) bei Division mit \(b\) ist das kleinste \(r\in\N\) sodass \(a=lb+r\) für ein \(l\in\Z\) gilt.
@@ -516,14 +517,106 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
 \end{lemma}
 
 \begin{definition}
-  \begin{enumerate}
-  \item Sei \(I\) Menge und \(G_i\) Gruppe für jedes \(i\in I\).
-  Dann ist
-  \[\prod_{i\in I}G_i\]
-  eine Gruppe mit punktweise definierter Verknüpfung.
-  Insbesondere sind \(G\times H\) und \(M\to G\) Gruppen.
-\item Sei \((M,\cdot,1)\) ein Monoid.
+  Sei \((M,\cdot,1)\) ein Monoid.
   Eine \begriff{Einheit} in \(M\) ist ein Element, zu dem es ein Inverses gibt.
   Wir bezeichnen die Gruppe der Einheiten in \(M\) mit \(M^\times\).
+\end{definition}
+
+\begin{beispiel}
+  Mit \(\Z/n\Z^\times\) meinen wir stets die Einheitengruppe des Monoids bezüglich Multiplikation. Es gilt:
+  \[
+  \Z/n\Z^\times=\{k+n\Z \in \Z/n\Z\mid \ggT(k,n)=1\}
+  \]
+  Denn: \(kl\equiv 1\mod n \Leftrightarrow \exists s\in\Z. kl+sn=1
+  \Leftrightarrow \ggT(k,n)=1\).
+  In Übungsblatt 4, Aufgabe 5 wird gezeit: Für eine Primzahl p ist \(\Z/p\Z^\times\) zyklisch.
+\end{beispiel}
+
+\begin{definition}
+  Sei \(I\) Menge und \(G_i\) Gruppe für jedes \(i\in I\).
+  Dann ist
+  \[\prod_{i\in I}G_i\]
+  eine Gruppe mit punktweise definierter Verknüpfung, d.h.\  für \(f,g\in\prod_{i\in I} G_i\):
+  \[
+  (f\cdot g)_i\coloneq f_i\cdot g_i
+  \]
+  Insbesondere sind \(G\times H\) und \(M\to G\) Gruppen.
+  Neutralelement und Inverse sind genauso punktweise gegeben.
+\end{definition}
+
+\begin{bemerkung}
+  Seien \(G=\langle x\rangle\) und \(H=\langle y \rangle\) enldich und zyklisch.
+  \(H\times G\) ist genau dann zyklisch, wenn \(\ggT(\ord(G),\ord(H))=1\).
+  Denn: Die Ordnung von \((x,y)\) ist die kleinste positive Zahl \(l\in \N\),
+  die von \(\ord(x)\) und \(\ord(y)\) geteilt wird.
+\end{bemerkung}
+
+\begin{beispiel}
+  Sei \(n\in\N\) mit \(n>2\) und \(\zeta_i\coloneq \left( 
+  \begin{array}{c}
+    \cos(\frac{2\pi i}{n}) \\
+    \sin(\frac{2\pi i}{n})
+  \end{array}
+  \right)\in\R^2\) für \(1\leq i\leq n\).
+  Die \(\zeta_i\) heißen \begriff{n-te Einheitswurzeln} und bilden die Ecken eines regelmäßigen n-Ecks.
+  Die Symmetriegruppe des n-Ecks lässt sich als die von
+  \[
+  r(\zeta_i)\coloneq \zeta_{i+1}\text{\quad und \quad} s(\zeta_i)=\bar{\zeta_i}
+  \]
+  erzeugte Untergruppe der Permutationen \(S(E)\) der Ecken beschreiben.
+\end{beispiel}
+
+
+\subsection{Gruppenoperationen}
+
+\begin{definition}
+  Sei \(M\) eine Menge und \(G\) eine Gruppe.
+  Eine \begriff{Operation} (auch: \begriff{Wirkung}, \begriff{Aktion})
+  ist eine Abbildung
+  \[
+  \_\cdot\_:G\times M\to M
+  \]
+  mit den folgenden Eigenschaften:
+  \begin{enumerate}[(i)]
+  \item \(1\cdot m=m\) für das Neutralelement \(1\in G\) und alle \(m\in M\)
+  \item \((gh)\cdot m=g\cdot (h\cdot m)\) für alle \(g,h\in G\) und alle \(m\in M\)
   \end{enumerate}
 \end{definition}
+
+\begin{beispiel}
+  \begin{enumerate}[(a)]
+  \item Triviale Operation: \(g\cdot x\coloneq x\).
+  \item \(GL_n(\R)\) operiert auf \(\R^n\) durch Multiplikation von links.
+  \item Auf jeder Menge \(M\) operiert \(S(M)\).
+  \item Jede Gruppe \(G\) operiert auf sich selbst durch Linksmultiplikation.
+   Rechtsmultiplikation mit dem Inversen ist auch eine Operation.
+  \item Jede Gruppe \(G\) operiert auf der Potenzmenge von \(G\) durch Linksmultiplikation.
+  \end{enumerate}
+\end{beispiel}
+
+\begin{bemerkung}
+  Seien \(G\) eine Gruppe und \(M\) eine Menge.
+  Es gibt eine wie folgt gegebene Bijektion zwischen der Menge
+  der Operationen von \(G\) auf \(M\) und den Gruppenhomomorphismen \(G\to S(M)\).
+\end{bemerkung}
+
+\ignore{
+\pagebreak
+
+
+\subsection*{Aufgaben}
+
+\paragraph{Aufgabe 1}
+Die \emph{eulersche \(\varphi\)-Funktion}, \(\varphi:\N\to\N\) ist gegeben durch
+\[
+\varphi(n)\coloneq |\{d\in \N\mid 1\leq d\leq n\text{ und }  \ggT(d,n)=1 \}|\rlap{.}
+\] In Teil (b) dieser Aufgabe kann verwendet werden, dass für beliebige \(n\in\N\) gilt:
+  \[
+  \sum_{d\in\N, d|n}\varphi(d)=n\rlap{.}
+  \]
+  Sei nun \(G\coloneq (\Z/p\Z^\times,\cdot)\) für eine Primzahl \(p\).
+\begin{enumerate}[(a)]
+\item Zeigen Sie, dass die Anzahl der Elemente von Ordnung \(d\) entweder 0 oder \(\varphi(d)\) ist, für jeden Teiler \(d|\ord(G)\).
+\item Folgern Sie, dass es ein Element \(g\in G\) der Ordnung \(\ord(G)\) geben muss, \(G\) also zyklisch ist.
+\end{enumerate}
+}
