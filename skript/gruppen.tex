@@ -469,7 +469,7 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
     \(a\) heißt \begriff{teilerfremd} zu \(b\), wenn \(\ggT(a,b)=1\) gilt.
   \item \(\kgV(a,b)\coloneq \min\{c\in\N|\text{\(a\) teilt \(c\)
     und \(b\) teilt \(c\)}\}\)\index{\(\kgV\)} heißt \begriff{kleinstes gemeinensames Vielfaches}.
-  \item Sei \(b\neq 0\). Der \begriff{Rest} von \(a\) bei Division mit \(b\) ist das kleinste \(r\in\N\) sodass \(a=lb+r\) für ein \(l\in\Z\) gilt.
+  \item Sei \(b\neq 0\). Der \begriff{Rest} von \(a\) bei Division mit \(b\) ist das kleinste \(r\in\N\) sodass \(a=lb+r\) für ein \(l\in\Z\) gilt und wird mit \(a \mod b\) bezeichnet\index{\(\mod\)}.
   \item Wir schreiben\index{\(\equiv\)}
     \[ a\equiv b \mod n \]
     wenn \(a\) und \(b\) bei Division mit \(n\) den gleichen Rest lassen.
@@ -510,8 +510,6 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
     \(r(k+n\Z)\coloneq \) Rest von \(k\) bei Division mit \(n\) ist wohldefiniert und bijektiv. Also hat auch \(\{0,\dots,n-1\}\) eine Struktur als abelsche Gruppe, die durch Addition gegeben ist.
   \item Sei \(\langle x\rangle = G\) zyklische Gruppe. Dann hat \(x^k\in G\) die Ordnung \(\frac{n}{\ggT(k,n)}\).
   \item Seien \(a,b\in\Z\). Die kleinste Untergruppe von \(\Z\), die \(a\) und \(b\) enthält ist \(\ggT(a,b)\cdot \Z\).
-\rednote{Stand nach VL vom 30.10.2026. (c) wurde bewiesen}
-
   \item Die Multiplikation auf \(\Z\) induziert eine Monoidstruktur auf \(\Z/n\Z\).
   \end{enumerate}
 \end{lemma}
@@ -552,20 +550,24 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
 \end{bemerkung}
 
 \begin{beispiel}
-  Sei \(n\in\N\) mit \(n>2\) und \(\zeta_i\coloneq \left( 
+  \begin{enumerate}
+  \item Sei \(n\in\N\) mit \(n>0\) und \(\zeta_k\coloneq \left( 
   \begin{array}{c}
-    \cos(\frac{2\pi i}{n}) \\
-    \sin(\frac{2\pi i}{n})
+    \cos(\frac{2\pi k}{n}) \\
+    \sin(\frac{2\pi k}{n})
   \end{array}
-  \right)\in\R^2\) für \(1\leq i\leq n\).
-  Die \(\zeta_i\) heißen \begriff{n-te Einheitswurzeln} und bilden die Ecken eines regelmäßigen n-Ecks.
-  Die Symmetriegruppe des n-Ecks lässt sich als die von
+  \right)\in\R^2\) für \(1\leq k\leq n\).
+  Die \(\zeta_k\) fassen wir bevorzugt als komplexe Zahlen auf, wobei dann gilt: \(\zeta_k=e^{\frac{2\pi i k}{n}}\).
+  Die \(\zeta_k\) heißen \begriff{n-te Einheitswurzeln}, da mit der komplexen Multiplikation \(\zeta_k^n=1\) gilt und bilden eine zyklische Gruppe.
+\item Sei nun \(n>2\). Die n-ten Einheitswurzeln bilden die Ecken eines regelmäßigen n-Ecks. Die Symmetriegruppe des n-Ecks lässt sich als die von
   \[
   r(\zeta_i)\coloneq \zeta_{i+1}\text{\quad und \quad} s(\zeta_i)=\bar{\zeta_i}
   \]
-  erzeugte Untergruppe der Permutationen \(S(E)\) der Ecken beschreiben.
+  erzeugte Untergruppe der Permutationen \(S(\{\zeta_1,\dots,\zeta_n\})\) beschreiben.
+  \end{enumerate}
 \end{beispiel}
 
+\rednote{Stand nach VL vom 3.11.2026.}
 
 \subsection{Gruppenoperationen}
 
