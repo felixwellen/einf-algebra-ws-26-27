@@ -469,7 +469,7 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
     \(a\) heißt \begriff{teilerfremd} zu \(b\), wenn \(\ggT(a,b)=1\) gilt.
   \item \(\kgV(a,b)\coloneq \min\{c\in\N|\text{\(a\) teilt \(c\)
     und \(b\) teilt \(c\)}\}\)\index{\(\kgV\)} heißt \begriff{kleinstes gemeinensames Vielfaches}.
-  \item Sei \(b\neq 0\). Der \begriff{Rest} von \(a\) bei Division mit \(b\) ist das kleinste \(r\in\N\) sodass \(a=lb+r\) für ein \(l\in\Z\) gilt und wird mit \(a \mod b\) bezeichnet\index{\(\mod\)}.
+  \item Sei \(b\neq 0\). Der \begriff{Rest} von \(a\) bei Division mit \(b\) ist das kleinste \(r\in\N\) sodass \(a=lb+r\) für ein \(l\in\Z\) gilt und wird mit \(a \omod b\) bezeichnet\index{\(\mod\)}.
   \item Wir schreiben\index{\(\equiv\)}
     \[ a\equiv b \mod n \]
     wenn \(a\) und \(b\) bei Division mit \(n\) den gleichen Rest lassen.
@@ -561,7 +561,7 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
   Die \(\zeta_k\) heißen \begriff{n-te Einheitswurzeln}, da mit der komplexen Multiplikation \(\zeta_k^n=1\) gilt und bilden eine zyklische Gruppe.
 \item Sei nun \(n>2\). Die n-ten Einheitswurzeln bilden die Ecken eines regelmäßigen n-Ecks. Die Symmetriegruppe des n-Ecks lässt sich als die von
   \[
-  r(\zeta_i)\coloneq \zeta_{i+1}\text{\quad und \quad} s(\zeta_i)=\bar{\zeta_i}
+  r(\zeta_i)\coloneq \zeta_{(i+1)\omod n}\text{\quad und \quad} s(\zeta_i)=\bar{\zeta_i}
   \]
   erzeugte Untergruppe der Permutationen \(S(\{\zeta_1,\dots,\zeta_n\})\) beschreiben.
   \end{enumerate}
@@ -601,6 +601,51 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
   Es gibt eine wie folgt gegebene Bijektion zwischen der Menge
   der Operationen von \(G\) auf \(M\) und den Gruppenhomomorphismen \(G\to S(M)\).
 \end{bemerkung}
+
+\begin{definition}
+  Sei \(G\) eine Gruppe, die auf einer Menge \(M\) operiert. 
+  \begin{enumerate}[(a)]
+  \item Für \(m\in M\) nennen wir \(Gm\coloneq\{gm\in M\mid g\in G\}\) die \begriff{Bahn} von \(m\) oder \begriff{Orbit} von \(m\).
+  \item \(G\backslash M\coloneq \{Gm\mid m\in M\}\)\index{\(G\backslash M\)} heißt \begriff{Bahnenraum}.
+  \item Für \(m\in M\) ist \(G_m\coloneq \{g\in G\mid gm=m\}\)\index{\(G_m\)} der \begriff{Stabilisator} von \(m\).
+  \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+  Sei \(G\) eine Gruppe, die auf einer Menge \(M\) operiert. 
+  \begin{enumerate}[(a)]
+  \item \(G_m\) ist für jedes \(m\in M\) eine Untergruppe von \(G\).
+  \item Die Abbildung \(\_\cdot m:G\to Gm\) induziert eine Bijektion \(G/G_m\to Gm\).
+  \item \(M\) ist die disjunkte Vereinigung der Bahnen unter der Operation von \(G\).
+  \end{enumerate}
+\end{lemma}
+
+\begin{beweis}
+  \begin{enumerate}
+  \item Seien \(g,h\in G\) mit \(gm=m\), \(hm=m\). Dann ist auch \(g^{-1}m=m\), da
+    \[
+    m=1m=g^{-1}(gm)=g^{-1}m
+    \]
+    Und es gelten \(ghm=m\) und \(1m=m\).
+  \item \(gm=hm\) gilt genau dann, wenn \(h^{-1}g\in G_m\).
+  \item \(Gm\cap Gn\neq\emptyset
+    \Rightarrow \exists g,h\in G. gm=hn
+    \Rightarrow \exists g,h\in G. m=g^{-1}hn\)
+    Also gilt für alle \(k\in G\) bereits \(km=k(g^{-1}hn\).
+    D.h.\ \(Gm\subseteq Gn\) und aus Symmetriegründen auch damit auch \(Gm=Gn\).
+  \end{enumerate}
+\end{beweis}
+
+\begin{satz}
+  Sei \(G\) eine Gruppe, die auf einer Menge \(M\) operiert und
+  \(\{m_1,\dots,m_l\}\subseteq M\) so, dass \(G\cdot\_:\{m_1,\dots,m_l\}\to G\backslash M\) bijektiv ist.
+  Es gelten:
+  \begin{enumerate}
+  \item \( |M| = \sum_{i=1}^l|Gm_i|=\sum_{i=1}^l (G : G_{m_i}) \)
+  \item \(\forall m\in M. \ord(G) = \ord(G_m)\cdot |Gm| \) 
+  \end{enumerate}
+\end{satz}
+
 
 \ignore{
 \pagebreak
