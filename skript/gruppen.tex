@@ -637,6 +637,7 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
 \end{beweis}
 
 \begin{satz}
+  \label{bahnformel}
   Sei \(G\) eine Gruppe, die auf einer Menge \(M\) operiert und
   \(\{m_1,\dots,m_l\}\subseteq M\) so, dass \(G\cdot\_:\{m_1,\dots,m_l\}\to G\backslash M\) bijektiv ist.
   Es gelten:
@@ -645,6 +646,24 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
   \item \(\forall m\in M. \ord(G) = \ord(G_m)\cdot |Gm| \) 
   \end{enumerate}
 \end{satz}
+
+\begin{definition}
+  Sei \(G\) eine Gruppe, die auf einer Menge \(M\) operiert.
+  \begin{enumerate}
+  \item Die Operation heißt \begriff{transitiv}, wenn es für alle \(x,y\in M\) ein \(g\in G\) gibt, sodass \(gx=y\) gilt. Äquivalent: Es gibt genau eine Bahn.
+  \item Eine Teilmenge \(V\subseteq M\) heißt \begriff{invariant} bezüglich der Operation von \(G\), wenn gilt \(G\cdot V\coloneq \{gv\mid g\in G, v\in V\}=V\).
+  \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+  Sei \(W\coloneq \{(x,y,z)^T\in \R^3\mid x,y,z\in\{-1,1\}\}\subseteq \R^3\) ein Würfel und \(S_W\coloneq \{A\in \O_2\mid A\cdot W=W\}\) seine Symmetriegruppe.
+  Jedes Element \(S\in S_W\) bildet Ecken auf Ecken, Kanten auf Kanten und Flächen auf Flächen ab. Wir haben also drei Operationen der Gruppe \(S_W\) auf den Mengen \(E,K,F\), der Ecken, Kanten und Flächen.
+  Jede dieser Operationen ist transitiv. Weiter gilt \(|F|=6,|E|=8,|K|=12\).
+  Nach \ref{bahnformel} sind diese Zahlen also Teiler der Gruppenordnung \(\ord(S_W)\), womit diese mindestens 24 ist.
+
+  Wir wählen \(k\in K\) und bestimmen \(\left(S_W\right)_k\), also die Untergruppe  der Symmetrien, unter denen \(k\) invariant ist. Es gilt \(\left(S_W\right)_k\cong \Z/2\Z\times \Z/2\Z\), also gilt insbesondere \(\ord(S_W)=48\).
+\end{beispiel}
+
 
 
 \ignore{
