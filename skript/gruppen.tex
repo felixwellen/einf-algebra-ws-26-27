@@ -567,8 +567,6 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
   \end{enumerate}
 \end{beispiel}
 
-\rednote{Stand nach VL vom 3.11.2026.}
-
 \subsection{Gruppenoperationen}
 
 \begin{definition}
@@ -599,7 +597,10 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
 \begin{bemerkung}
   Seien \(G\) eine Gruppe und \(M\) eine Menge.
   Es gibt eine wie folgt gegebene Bijektion zwischen der Menge
-  der Operationen von \(G\) auf \(M\) und den Gruppenhomomorphismen \(G\to S(M)\).
+  der Operationen von \(G\) auf \(M\) und den Gruppenhomomorphismen \(G\to S(M)\):
+  \[
+    \rho\mapsto (g\mapsto \rho(g,\_) ):\{\rho:G\times M\to M\mid \rho\text{ Gruppenoperation}\} \to \{\text{Homomorphismen } G\to S(M)\}
+  \]
 \end{bemerkung}
 
 \begin{definition}
@@ -608,8 +609,15 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
   \item Für \(m\in M\) nennen wir \(Gm\coloneq\{gm\in M\mid g\in G\}\) die \begriff{Bahn} von \(m\) oder \begriff{Orbit} von \(m\).
   \item \(G\backslash M\coloneq \{Gm\mid m\in M\}\)\index{\(G\backslash M\)} heißt \begriff{Bahnenraum}.
   \item Für \(m\in M\) ist \(G_m\coloneq \{g\in G\mid gm=m\}\)\index{\(G_m\)} der \begriff{Stabilisator} von \(m\).
+  \item Die Operation heißt \begriff{transitiv}, wenn es für alle \(x,y\in M\) ein \(g\in G\) gibt, sodass \(gx=y\) gilt. Äquivalent: Es gibt genau eine Bahn.
+  \item Eine Teilmenge \(V\subseteq M\) heißt \begriff{invariant} bezüglich der Operation von \(G\), wenn gilt \(G\cdot V\coloneq \{gv\mid g\in G, v\in V\}=V\).
   \end{enumerate}
 \end{definition}
+
+\begin{beispiel}
+  \(\SO_2\) operiert auf \(\R^2\) durch Rotation um den Ursprung.
+  Die Bahnen sind dann Kreise.
+\end{beispiel}
 
 \begin{lemma}
   Sei \(G\) eine Gruppe, die auf einer Menge \(M\) operiert. 
@@ -636,7 +644,7 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
   \end{enumerate}
 \end{beweis}
 
-\begin{satz}
+\begin{satz}[Bahnengleichung]
   \label{bahnformel}
   Sei \(G\) eine Gruppe, die auf einer Menge \(M\) operiert und
   \(\{m_1,\dots,m_l\}\subseteq M\) so, dass \(G\cdot\_:\{m_1,\dots,m_l\}\to G\backslash M\) bijektiv ist.
@@ -647,13 +655,7 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
   \end{enumerate}
 \end{satz}
 
-\begin{definition}
-  Sei \(G\) eine Gruppe, die auf einer Menge \(M\) operiert.
-  \begin{enumerate}
-  \item Die Operation heißt \begriff{transitiv}, wenn es für alle \(x,y\in M\) ein \(g\in G\) gibt, sodass \(gx=y\) gilt. Äquivalent: Es gibt genau eine Bahn.
-  \item Eine Teilmenge \(V\subseteq M\) heißt \begriff{invariant} bezüglich der Operation von \(G\), wenn gilt \(G\cdot V\coloneq \{gv\mid g\in G, v\in V\}=V\).
-  \end{enumerate}
-\end{definition}
+\rednote{Stand nach VL vom 6.11.2026.}
 
 \begin{beispiel}
   Sei \(W\coloneq \{(x,y,z)^T\in \R^3\mid x,y,z\in\{-1,1\}\}\subseteq \R^3\) ein Würfel und \(S_W\coloneq \{A\in \O_2\mid A\cdot W=W\}\) seine Symmetriegruppe.
