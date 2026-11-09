@@ -667,6 +667,85 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
 \end{beispiel}
 
 
+\begin{definition}
+  Sei \(G\) eine Gruppe.
+  \begin{enumerate}[(a)]
+  \item \(\Aut(G)\)\index{\(\Aut(G)\)} bezeichnet die Gruppe der \begriff{Automorphismen} von \(G\), also Isomorphismen der Form \(G\to G\).
+  \item Ein \begriff{innerer Automorphismus} ist ein Automorphismus \(\varphi:G\to G\) der Form \(\varphi(x)=gxg^{-1}\) für ein festes \(g\in G\).
+  \item Das \begriff{Zentrum von \(G\)} ist \(Z_G\coloneq \{x\in G\mid \forall g\in G. gx=xg\}\).
+  \end{enumerate}
+\end{definition}
+
+\begin{bemerkung}
+  \begin{enumerate}[(a)]
+  \item Für eine ablesche Gruppe sind alle inneren Automorphismen trivial.
+  \item Es gibt Automorphismen, die keine inneren Automorphismen sind (\(-:\Z\to \Z\)).
+  \item Die Abbildung \(\int\coloneq g\mapsto (g\_g^{-1}):G\to \Aut(G)\) ist ein Homomorphismus.
+  \item Es gilt \(\Kern(\int)=Z_G\).
+  \item Sei \(G/Z_G\) zyklisch. Dann ist \(G\) abelsch.
+  \end{enumerate}
+\end{bemerkung}
+
+\begin{beweis}
+  \begin{enumerate}[(a)]
+  \item[(c)] \(gh\_(gh)^{-1}=g\_g^{-1} \circ h\_h^{-1}\)
+  \item[(d)] Übung
+  \end{enumerate}
+\end{beweis}
+
+\begin{beispiel}
+  \(S_3\) ist \emph{nicht} Produkt der Untergruppen \(\{1,s\}\) und \(\{1,r,r^2\}\).
+\end{beispiel}
+
+\begin{definition}
+  Seien \(G,H\) Gruppen und \(\rho:G\to \Aut(H)\) eine Operation von \(G\) auf \(H\).
+  Das \begriff{Semidirekte Produkt} (von \(g,h,\rho\))
+  ist eine Gruppe mit zugrundeliegender Menge \(G\times H\) und Verknüpfung
+  \[
+    (g,h)\cdot (g^\prime,h^\prime)\coloneq (gg^\prime, h\rho(g)(h^\prime))
+  \]
+\end{definition}
+
+Übung: \(G\times H\) mit dieser Verknüpfung ist eine Gruppe. \(S_3\) ist mit einer geeigneten Operation semidirektes Produkt zyklischer Gruppen.
+
+\begin{beispiel}
+  \begin{enumerate}
+  \item Allgemeiner: Diedergruppen sind semidirekte Produkte.
+  \item Die Gruppe der Bewegungen des \(\R^3\) ist das semidirekte Produkt von \(\O_3\) und \(\R^3\).
+  \end{enumerate}
+\end{beispiel}
+
+\subsection{Die Sätze von Sylow}
+
+\begin{definition}
+  Sei \(p\in\N\) eine Primzahl.
+  \begin{enumerate}[(a)]
+  \item Eine \begriff{\(p\)-Gruppe} ist eine endliche Gruppe, deren Ordnung eine Potenz von \(p\) ist.
+  \item Eine \begriff{\(p\)-Untergruppe} ist eine Untergruppe, die eine \(p\)-Gruppe ist.
+  \item Eine \begriff{\(p\)-Sylowgruppe} ist eine \(p\)-Untergruppe einer endlichen Gruppe, deren Ordnung eine maximale \(p\)-Potenz ist, also so dass gilt \(\ord(G)=p^km\) mit \(m\in \N\) sodass \(p\) \(m\) nicht teilt.
+  \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+  \begin{enumerate}[(a)]
+  \item Sei \(p\) Primzahl, dann ist \(\Z/p^n\Z\) für jedes \(n>0\) eine \(p\)-Gruppe.
+  \item \(D_4\) hat Ordnung 8 und ist damit eine 2-Gruppe und eine 2-Sylowgruppe in \(D_4\). \(D_4\) ist isomorph der Untergruppe von \(S_W\), die von Drehungen um die x-Achse und Spiegelund an der xy-Ebene erzeugt wird. Da \(S_W\) 48 Elemente hat, ist das keine 2-Sylowgruppe.
+  \end{enumerate}
+\end{beispiel}
+
+\begin{lemma}
+  Es sei \(G\) eine endliche Gruppe der Ordnung \(n=p^km\), wobei \(p\) eine Primzahl ist.
+  Dann gilt für die Anzahl  \(s\) der \(p\)-Untergruppen von Ordnung \(p^k\):
+  \[ ms\equiv
+  \left(
+  \begin{array}{c}
+    n \\
+    p^k
+  \end{array}
+  \right)
+  \mod p
+  \]
+\end{lemma}
 
 \ignore{
 \pagebreak
