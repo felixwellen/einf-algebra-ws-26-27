@@ -646,7 +646,7 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
 
 \begin{satz}[Bahnengleichung]
   \label{bahnformel}
-  Sei \(G\) eine Gruppe, die auf einer Menge \(M\) operiert und
+  Sei \(G\) eine endliche Gruppe, die auf einer Menge \(M\) operiert und
   \(\{m_1,\dots,m_l\}\subseteq M\) so, dass \(G\cdot\_:\{m_1,\dots,m_l\}\to G\backslash M\) bijektiv ist.
   Es gelten:
   \begin{enumerate}
@@ -697,7 +697,7 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
 
 \begin{definition}
   Seien \(G,H\) Gruppen und \(\rho:G\to \Aut(H)\) eine Operation von \(G\) auf \(H\).
-  Das \begriff{Semidirekte Produkt} (von \(g,h,\rho\))
+  Das \begriff{Semidirekte Produkt} \(G\ltimes_\rho H\)
   ist eine Gruppe mit zugrundeliegender Menge \(G\times H\) und Verknüpfung
   \[
     (g,h)\cdot (g^\prime,h^\prime)\coloneq (gg^\prime, h\rho(g)(h^\prime))
@@ -729,13 +729,18 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
 \begin{beispiel}
   \begin{enumerate}[(a)]
   \item Sei \(p\) Primzahl, dann ist \(\Z/p^n\Z\) für jedes \(n>0\) eine \(p\)-Gruppe.
-  \item \(D_4\) hat Ordnung 8 und ist damit eine 2-Gruppe und eine 2-Sylowgruppe in \(D_4\). \(D_4\) ist isomorph der Untergruppe von \(S_W\), die von Drehungen um die x-Achse und Spiegelund an der xy-Ebene erzeugt wird. Da \(S_W\) 48 Elemente hat, ist das keine 2-Sylowgruppe.
+  \item \(D_4\) hat Ordnung 8 und ist damit eine 2-Gruppe und eine 2-Sylowgruppe in \(D_4\). \(D_4\) ist isomorph zu der Untergruppe von \(S_W\), die von Drehungen um die x-Achse und Spiegelung an der xy-Ebene erzeugt wird. Da \(S_W\) 48 Elemente hat, ist das keine 2-Sylowgruppe.
   \end{enumerate}
 \end{beispiel}
 
 \begin{lemma}
-  Es sei \(G\) eine endliche Gruppe der Ordnung \(n=p^km\), wobei \(p\) eine Primzahl ist.
-  Dann gilt für die Anzahl  \(s\) der \(p\)-Untergruppen von Ordnung \(p^k\):
+  Sei \(G\) eine endliche Gruppe, \(p\in\N\) eine Primzahl und \(k\in \N\) so,
+  dass \(p^km=n\coloneq\ord(G)\) für ein \(m\in\N\) gilt.
+  Weiter sei \(X\coloneq \{U\subseteq G\mid |U|=p^k\}\).
+  Durch Linksmultiplikation ist eine Operation von \(G\) auf \(X\) gegeben.
+  \begin{enumerate}
+  \item Auf der Bahn von \(U\in X\) liegt genau dann eine Untergruppe, wenn \(\ord(G_U)=p^k\) gilt.
+  \item Für die Anzahl \(s\) der Untergruppen \(H<G\) mit \(\ord(H)=p^k\) gilt:
   \[ ms\equiv
   \left(
   \begin{array}{c}
@@ -745,25 +750,17 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
   \right)
   \mod p
   \]
+  \end{enumerate}
 \end{lemma}
 
-\ignore{
-\pagebreak
 
-
-\subsection*{Aufgaben}
-
-\paragraph{Aufgabe 1}
-Die \emph{eulersche \(\varphi\)-Funktion}, \(\varphi:\N\to\N\) ist gegeben durch
-\[
-\varphi(n)\coloneq |\{d\in \N\mid 1\leq d\leq n\text{ und }  \ggT(d,n)=1 \}|\rlap{.}
-\] In Teil (b) dieser Aufgabe kann verwendet werden, dass für beliebige \(n\in\N\) gilt:
-  \[
-  \sum_{d\in\N, d|n}\varphi(d)=n\rlap{.}
-  \]
-  Sei nun \(G\coloneq (\Z/p\Z^\times,\cdot)\) für eine Primzahl \(p\).
-\begin{enumerate}[(a)]
-\item Zeigen Sie, dass die Anzahl der Elemente von Ordnung \(d\) entweder 0 oder \(\varphi(d)\) ist, für jeden Teiler \(d|\ord(G)\).
-\item Folgern Sie, dass es ein Element \(g\in G\) der Ordnung \(\ord(G)\) geben muss, \(G\) also zyklisch ist.
-\end{enumerate}
-}
+\begin{beweis}
+  \begin{enumerate}
+  \item Sei \(U\in X\).
+    \(G_U\) operiert durch Linksmultiplikation auf \(U\).
+    Der Bahnenraum dazu ist eine Teilmenge der Menge der Rechtsnebenklassen von \(G_U\).
+    Für Stabilisatoren \(G_U\) gilt \(\ord(G_U)\cdot |G(U)|=|U|\) und damit \(\ord(G_U)=p^{l}\) mit \(l\leq k\).
+    Im Fall \(\ord(G_U)=p^k\) gilt \(\ord(G_U)=|U|\) womit \(U\) eine Rechtsnebenklasse von \(G_U\) sein muss. Damit liegt ein konjugat von \(G_U\) in \(G(U)\), was eine Untergruppe ist.
+  \end{enumerate}
+\end{beweis}
+ 
