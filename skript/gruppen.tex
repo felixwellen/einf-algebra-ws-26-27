@@ -751,6 +751,31 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
   \item Übungsblatt 6.
   \end{enumerate}
 \end{beweis}
+\begin{satz}[Sylow-Sätze]\index{Sylow-Sätze}
+  Sei \(G\) eine endliche Gruppe und \(p\) eine Primzahl.
+  \begin{enumerate}[(i)]
+  \item Es gibt eine \(p\)-Sylowgruppe \(S_p<G\) und jede \(p\)-Untergruppe von \(G\) ist in einer \(p\)-Sylowgruppe enthalten.
+  \item Sei \(S_p<G\) eine \(p\)-Sylowgruppe, dann ist für \(g\in G\) auch \(gS_pg^{-1}\) eine \(p\)-Sylowgruppe und für jede weitere \(p\)-Sylowgruppe \(S_p^\prime<G\) gibt es \(h\in G\) sodass \(S_p^\prime=hS_ph^{-1}\).
+  \item Für die Anzahl \(s_P\) der \(p\)-Sylowgruppen gilt:
+    \[
+     s_p \equiv 1 \mod p\quad\quad \quad s_p|\ord(G)\rlap{.}
+    \]
+  \end{enumerate}
+\end{satz}
+
+\begin{beispiel}
+  Sei \(G\) Gruppe mit \(\ord(G)=297\) dann gibt es jeweils genau eine \(3\)-Sylowgruppe und \(11\)-Sylowgruppe und es gilt \(G\cong S_{11}\times S_3\).
+\end{beispiel}
+
+\begin{korollar}
+  Sei \(A\) abelsche Gruppe. Für jede Primzahl \(p\) gibt es genau eine \(p\)-Sylowgruppe \(S_p<A\) und es gilt:
+  \[
+  S_p=\{x\in A\mid \exists l\in \N.\ord(x)=p^l \}
+  \]
+  Und \(A\) ist Produkt der \(S_p\) mit \(p|\ord(A)\).
+\end{korollar}
+
+Der Beweis der Sylow-Sätze erfolgt mit den folgenden zwei Lemmas.
 
 \begin{lemma}
   Sei \(G\) eine endliche Gruppe, \(p\in\N\) eine Primzahl und \(k\in \N\) so,
@@ -796,7 +821,7 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
   \]
   \end{enumerate}
 \end{beweis}
- 
+
 Es gibt eine zyklische Gruppe der Ordnung \(mp^k\), die dann genau eine Untergruppe der Ordnung \(p^k\) hat. Damit gilt
 \[
   \left(
@@ -807,3 +832,16 @@ Es gibt eine zyklische Gruppe der Ordnung \(mp^k\), die dann genau eine Untergru
   \right)\equiv m \mod p
   \]
 und insbesondere gilt \(s\equiv 1\mod p\) wenn \(m\) ein modulo \(p\) ein Inverses besitzt, also zum Beispiel dann wenn \(m\) nicht von \(p\) geteilt wird.
+ 
+\begin{lemma}
+  Seien \(G\) endliche Gruppe, \(p\) Primzahl und \(S_p\) eine \(p\)-Sylowgruppe in \(G\). Dann existiert für jeden \(p\)-Untergruppe \(H<G\) ein \(g\in G\) sodass \(H\subseteq gS_pg^{-1}\).
+\end{lemma}
+
+\begin{beweis}
+  Betrachte die Operation von \(H\) auf \(G/S_p\), gegeben durch \(h\cdot gS_p\coloneq hgS_p\).
+  Bahngleicheng liefert:
+  \[
+  |G/S_p|=\sum_{i=1}^l (H : H_{g_iS_p})
+  \]
+  das betrachten wir modulo \(p\) und sehen, dass es \(g_i\) mit \((H:H_{g_iS_p})=1\) geben muss.
+\end{beweis}
