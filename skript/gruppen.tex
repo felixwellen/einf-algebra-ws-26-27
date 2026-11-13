@@ -733,6 +733,25 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
   \end{enumerate}
 \end{beispiel}
 
+
+\begin{lemma}
+  Sei \(p\) Primzahl und \(G\neq\{1\}\) eine \(p\)-Gruppe.
+  \begin{enumerate}[(a)]
+  \item Es gilt \(Z_G\neq\{1\}\).
+  \item Für jeden Teiler \(p^k\) von \(\ord(G)\) gibt es einen Normalteiler \(N\triangleleft G\) mit \(\ord(N)=p^k\).
+  \end{enumerate}
+\end{lemma}
+
+\begin{beweis}
+  \begin{enumerate}[(a)]
+  \item \(G\) operiert durch Konjugation auf \(G\), das Zentrum \(Z_G\).
+    Es gilt \(|G|=\sum_{i=1}^l (G : G_{g_i})\) für passende \(g_1,\dots,g_l\in G\).
+    Für das Zentrum gilt damit \(\sum_{h\in Z_G}(G : G_{g_i})\equiv \sum_{h\in Z_G}1 \mod p\).
+    Wegen \(1\in Z_G\) gilt also \(p||Z_G|\).
+  \item Übungsblatt 6.
+  \end{enumerate}
+\end{beweis}
+
 \begin{lemma}
   Sei \(G\) eine endliche Gruppe, \(p\in\N\) eine Primzahl und \(k\in \N\) so,
   dass \(p^km=n\coloneq\ord(G)\) für ein \(m\in\N\) gilt.
@@ -761,6 +780,30 @@ Wir verwenden die auf \(\Z\) bekannte Addition und Multiplikation.
     Der Bahnenraum dazu ist eine Teilmenge der Menge der Rechtsnebenklassen von \(G_U\).
     Für Stabilisatoren \(G_U\) gilt \(\ord(G_U)\cdot |G(U)|=|U|\) und damit \(\ord(G_U)=p^{l}\) mit \(l\leq k\).
     Im Fall \(\ord(G_U)=p^k\) gilt \(\ord(G_U)=|U|\) womit \(U\) eine Rechtsnebenklasse von \(G_U\) sein muss. Damit liegt ein konjugat von \(G_U\) in \(G(U)\), was eine Untergruppe ist.
+  \item Es gilt \(|X|=\left(
+  \begin{array}{c}
+    n \\
+    p^k
+  \end{array}
+  \right)\) und damit nach der Bahngleichung:
+  \[
+  \left(
+  \begin{array}{c}
+    n \\
+    p^k
+  \end{array}
+  \right)=|X|=\sum_{i=1}^l (G : G_{U_i})\equiv \sum_{i=1, \ord(G_{U_i})=p^k}^l(G : G_{U_i})=ms \mod p
+  \]
   \end{enumerate}
 \end{beweis}
  
+Es gibt eine zyklische Gruppe der Ordnung \(mp^k\), die dann genau eine Untergruppe der Ordnung \(p^k\) hat. Damit gilt
+\[
+  \left(
+  \begin{array}{c}
+    n \\
+    p^k
+  \end{array}
+  \right)\equiv m \mod p
+  \]
+und insbesondere gilt \(s\equiv 1\mod p\) wenn \(m\) ein modulo \(p\) ein Inverses besitzt, also zum Beispiel dann wenn \(m\) nicht von \(p\) geteilt wird.
