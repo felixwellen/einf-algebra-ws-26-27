@@ -1,0 +1,47 @@
+\rednote{Stand nach VL vom Freitag 13.11.2026.}
+
+\subsection{Grundlegende Definitionen}
+
+\begin{definition}
+  Eine \begriff{Ring} (mit Eins) ist eine Menge \(R\) zusammen mit zwei Verknüpfungen \(+\) und \(\cdot\) sodass gilt:
+  \begin{enumerate}[(i)]
+  \item \((R,+)\) ist abelsche Gruppe.
+  \item \((R,\cdot)\) ist Monoid.
+  \item Es gelten die folgenden beiden Distributivgesetze:
+    \begin{align*}
+      &\forall a,b,c\in R.~ (a+b)\cdot c =a\cdot c+b\cdot c \\
+      &\forall a,b,c\in R.~ a\cdot (b+c)=a\cdot b+a\cdot c
+    \end{align*}
+  \end{enumerate}
+  Ein Ring heißt \emph{kommutativ}, wenn \(\cdot\) kommutativ ist.
+  Wir gehen stets davon aus, dass das der Fall ist und erwähnen Ausnahmen explizit.
+\end{definition}
+
+\begin{konvention}
+  Das Neutralelement bezüglich \(+\) bezeichnen wir stets mit \(0\) und das Neutralelement bezüglich \(\cdot\) mit \(1\). Wie gehabt schreiben wir \(-a\) für das additiv Inverse zu \(a\in R\) und \(a^{-1}\) für das multiplikativ Inverse. Wir lassen \(\cdot\) wie gehabt manchmal weg und verwenden die Regel ``Punkt vor Strich'', dass also \(\cdot\) stärker bindet als \(+\), so ist zum Beispiel:
+  \[
+    ac+b=(a\cdot c)+b
+  \]  
+\end{konvention}
+
+\begin{beispiel}
+  \begin{enumerate}[(a)]
+  \item \(\{0\}\) ist der sogenannte \begriff{Nullring}, der einzige Ring in dem \(1=0\) gilt.
+  \item \((\Z,+,\cdot)\), \((\Q,+,\cdot)\), \((\R,+,\cdot)\), \((\C,+,\cdot)\) sind Ringe.
+  \item \(M_n(R)\coloneq R^{n\times n}\) ist nicht-kommutativer Ring mit Matrixmultiplikation und komponentenweiser Addition.
+  \item Die Potenzmenge \(\mathcal P(M)\) einer beliebigen Menge \(M\) ist ein Ring mit Durchschnitt als Multiplikation und symmetrischer Differenz als Addition.
+  \end{enumerate}
+\end{beispiel}
+
+\begin{bemerkung}
+  Sei \(R\) ein Ring, dann gilt: \(-a=(-1)\cdot a\).
+\end{bemerkung}
+
+\begin{beweis}
+  \(0=(1+(-1))\cdot a=a+(-1)\cdot a \Rightarrow -a=(-1)\cdot a\).
+\end{beweis}
+
+\begin{definition}
+  Sei \(R\) Ring.
+  Die \begriff{Einheitengruppe} \(R^\times\)\index{\(R^\times\)} ist die Gruppe der invertierbaren Elemente des Monoids \((R,\cdot)\).
+\end{definition}
