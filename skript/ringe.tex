@@ -30,6 +30,13 @@
   \item \((\Z,+,\cdot)\), \((\Q,+,\cdot)\), \((\R,+,\cdot)\), \((\C,+,\cdot)\) sind Ringe.
   \item \(M_n(R)\coloneq R^{n\times n}\) ist nicht-kommutativer Ring mit Matrixmultiplikation und komponentenweiser Addition.
   \item Die Potenzmenge \(\mathcal P(M)\) einer beliebigen Menge \(M\) ist ein Ring mit Durchschnitt als Multiplikation und symmetrischer Differenz als Addition.
+  \item Wie bei den Gruppen ist das Produkt \(R\times S\) zweier Ringe \(R,S\) mit komponentenweiser Verknüpfung wieder ein Ring:
+  \begin{align*}
+  & (r,s)+(r^\prime,s^\prime)\coloneq (r+r^\prime,s+s^\prime) \\
+  & (r,s)\cdot (r^\prime,s^\prime)\coloneq (r\cdot r^\prime,s\cdot s^\prime)\rlap{.}
+\end{align*}
+\(R\times S\) ist genau dann kommutative, wenn \(R\) und \(S\) kommutativ sind.
+Allgemeiner ist für eine Menge \(M\) und einen Ring \(R\) auch \(M\to R\) mit komponentenweisen/punktweisen Verknüpfungen wieder ein Ring und \(\prod_{i\in I}R_i\) für eine Familie \((R_i)_{i\in I}\) von Ringen.
   \end{enumerate}
 \end{beispiel}
 
@@ -44,4 +51,33 @@
 \begin{definition}
   Sei \(R\) Ring.
   Die \begriff{Einheitengruppe} \(R^\times\)\index{\(R^\times\)} ist die Gruppe der invertierbaren Elemente des Monoids \((R,\cdot)\).
+\end{definition}
+
+\begin{definition}
+  Sei \(R\) ein Ring.
+  \begin{enumerate}
+  \item Ein Element \(r\in R\) heißt \begriff{Nullteiler}, wenn \(s\in R\) existiert, sodass \(r\cdot s=0\) gilt.
+  \item \(R\) heißt \begriff{nullteilerfrei}, wenn für jeden Nullteiler \(r\in R\) bereits \(r=0\) gilt.
+  \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+  \(\Z\) ist nullteilerfrei, \(\Z\times \Z\) hat zum Beispiel den Nullteiler \((1,0)\).
+\end{beispiel}
+
+
+
+\begin{definition}
+Sei \(R\) ein Ring. Die zugrundeliegende Menge des \begriff{Polynomring}s\index{\(R[X]\)} ist gegeben durch:
+\[
+  R[X]\coloneq \{a\in R^\N\mid \exists n\in \N. \forall k\geq n. a_k=0\}
+\]
+Die Addition ist komponentenweise gegeben, also für \(a,b\in R[X]\) sei:
+\[
+  (a+b)_i\coloneq a_i+b_i
+\]
+Die Multiplikation ist gegeben durch die Cauchy-Produktformel:
+\[
+  (a\cdot b)_i\coloneq \sum_{k,l\in\N, k+l=i}a_k\cdot b_l
+\]
 \end{definition}
