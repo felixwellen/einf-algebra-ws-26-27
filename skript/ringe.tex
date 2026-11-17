@@ -1,5 +1,3 @@
-\rednote{Stand nach VL vom Freitag 13.11.2026.}
-
 \subsection{Grundlegende Definitionen}
 
 \begin{definition}
@@ -56,8 +54,8 @@ Allgemeiner ist für eine Menge \(M\) und einen Ring \(R\) auch \(M\to R\) mit k
 \begin{definition}
   Sei \(R\) ein Ring.
   \begin{enumerate}
-  \item Ein Element \(r\in R\) heißt \begriff{Nullteiler}, wenn \(s\in R\) existiert, sodass \(r\cdot s=0\) gilt.
-  \item \(R\) heißt \begriff{nullteilerfrei}, wenn für jeden Nullteiler \(r\in R\) bereits \(r=0\) gilt.
+  \item Ein Element \(r\in R\) heißt \begriff{Nullteiler}, wenn \(s\in R\setminus\{0\}\) existiert, sodass \(r\cdot s=0\) gilt.
+  \item \(R\) heißt \begriff{nullteilerfrei}, wenn für jeden Nullteiler \(r\in R\) bereits \(r=0\) gilt und \(R\) nicht der Nullring ist.
   \end{enumerate}
 \end{definition}
 
@@ -65,7 +63,14 @@ Allgemeiner ist für eine Menge \(M\) und einen Ring \(R\) auch \(M\to R\) mit k
   \(\Z\) ist nullteilerfrei, \(\Z\times \Z\) hat zum Beispiel den Nullteiler \((1,0)\).
 \end{beispiel}
 
+\begin{bemerkung}
+  Sei \(R\) und \(r\in R\) ein Nullteiler. Dann ist \(r\) keine Einheit.
+\end{bemerkung}
 
+\begin{beweis}
+  Sei \(r\) Nullteiler und Einheit. Dann gibt es \(s\in R\setminus\{0\}\) mit \(rs=0\).
+  Also gilt \(0=rr^{-1}s=s\).
+\end{beweis}
 
 \begin{definition}
 Sei \(R\) ein Ring. Die zugrundeliegende Menge des \begriff{Polynomring}s\index{\(R[X]\)} ist gegeben durch:
@@ -80,4 +85,33 @@ Die Multiplikation ist gegeben durch die Cauchy-Produktformel:
 \[
   (a\cdot b)_i\coloneq \sum_{k,l\in\N, k+l=i}a_k\cdot b_l
 \]
+Die Elemente von \(R[X]\) heißen \begriff{Polynome}.
+Das durch \((0,1,0,\dots)\in R[X]\) gegebene Polynom bezeichnen wir mit \(X\)\index{\(X\)}.
+Und für \((r,0,\dots)\in R[X]\) schreiben wir \(r\).
 \end{definition}
+
+\begin{bemerkung}
+Für jedes Polynom \(P\in R[X]\) gilt
+\[
+  P=\sum_{i\in \N}a_iX^i\text{\quad und \quad} P=\sum_{i=0}^na_iX^i
+\]
+für jedes \(n\geq \grad(P)\).
+\end{bemerkung}
+
+\rednote{Stand nach VL vom Dienstag 17.11.2026.  }
+
+\begin{definition}
+Der \begriff{Grad} eines Polynoms \(P=(a_0,a_1,\dots)\in R[X]\) ist gegeben durch
+\[
+\grad(P)\coloneq \max \{i\in\N\mid a_i\neq 0\}
+\]
+wobei wir für \(P=(0,\dots)\) festlegen: \(\grad(P)=-\infty\).
+\end{definition}
+
+\begin{bemerkung}
+  Es gilt für alle \(P,Q\in R[X]\):
+  \begin{align*}
+    & \grad(P+Q)\leq \max(\grad(P),\grad(Q)) \\
+    & \grad(P\cdot Q)\leq \grad(P)+\grad(Q)     
+\end{align*}
+\end{bemerkung}
