@@ -101,17 +101,57 @@ für jedes \(n\geq \grad(P)\).
 \rednote{Stand nach VL vom Dienstag 17.11.2026.  }
 
 \begin{definition}
-Der \begriff{Grad} eines Polynoms \(P=(a_0,a_1,\dots)\in R[X]\) ist gegeben durch
+  Sei \(R\) ein Ring.
+  \begin{enumerate}
+  \item Der \begriff{Grad} eines Polynoms \(P=(a_0,a_1,\dots)\in R[X]\) ist gegeben durch
 \[
 \grad(P)\coloneq \max \{i\in\N\mid a_i\neq 0\}
 \]
 wobei wir für \(P=(0,\dots)\) festlegen: \(\grad(P)=-\infty\).
+\item Der \begriff{Leitkoeffizient} eines Polynoms \(P=(a_0,a_1,\dots)\in R[X]\) mit \(d\coloneq \grad(P)\geq 0\) ist \(a_d\).  
+  \item Ein Polynom \(P\in R[X]\) heißt \begriff{normiert}, wenn \(\grad(P)\geq 0\) und der Leitkoeffizient von \(P\) \(1\) ist.
+  \end{enumerate}
 \end{definition}
 
 \begin{bemerkung}
+  Sei \(R\) Ring.
   Es gilt für alle \(P,Q\in R[X]\):
   \begin{align*}
     & \grad(P+Q)\leq \max(\grad(P),\grad(Q)) \\
     & \grad(P\cdot Q)\leq \grad(P)+\grad(Q)     
-\end{align*}
+  \end{align*}
+  Wenn \(R\) nullteilerfrei ist, gilt sogar \(\grad(P\cdot Q)=\grad(P)+\grad(Q)\).
 \end{bemerkung}
+
+\begin{definition}
+  Sei \(R\) ein Ring.
+  Seien weiter \(P,Q\in R[X]\) und \(Q\) normiert.
+  Dann existieren eindeutige \(R,D\in R[X]\) sodass gilt:
+  \[
+    P=DQ+R\text{\quad und }\grad(R)<\grad(Q)\rlap{.}
+  \]
+  \(R\) heißt \begriff{Rest} der Division von \(P\) mit \(Q\).
+\end{definition}
+
+\begin{definition}
+  Sei \(R\) ein Ring. \(r\in R\) ist \begriff{regulär},
+  wenn die Multiplikation mit \(r\) eine injektive Abbildung \(r\cdot\_:R\to R\) ist.
+\end{definition}
+
+Da \(r\cdot\_:(R,+)\to (R,+)\) ein Homomorphismus abelscher Gruppen ist,
+ist die Injektivität äquivalent zu \(\{0\}=\Kern(r\cdot\_)\).
+Wenn \(r\) regulär ist, können wir für beliebige \(a,b\in R\) aus \(ra=rb\) bereits
+\(a=b\) schließen.
+
+\begin{definition}
+  Sei \(R\) ein Ring und \(S\subseteq R\) eine Teilmenge.
+  \(S\) heißt \begriff{Teilring} oder \begriff{Unterring} von \(R\),
+  wenn \(0,1\in S\) gilt und \(S\) abgeschlossen ist unter \(+,\cdot\) und additiven Inversen.
+\end{definition}
+
+\begin{definition}
+  Ein \(R\) heißt \begriff{Körper}, wenn für alle \(r\in R\) gilt:
+  \[ r\neq 0 \Leftrightarrow r\in R^\times\rlap{.} \]
+\end{definition}
+
+\subsection{Ideale}
