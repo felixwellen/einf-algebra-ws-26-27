@@ -133,6 +133,10 @@ wobei wir für \(P=(0,\dots)\) festlegen: \(\grad(P)=-\infty\).
   \(R\) heißt \begriff{Rest} der Division von \(P\) mit \(Q\).
 \end{definition}
 
+\begin{lemma}
+  Sei \(R\) ein nullteilerfreier Ring. Dann ist \(R[X]\) ebenfalls nullteilerfrei.
+\end{lemma}
+
 \begin{definition}
   Sei \(R\) ein Ring. \(r\in R\) ist \begriff{regulär},
   wenn die Multiplikation mit \(r\) eine injektive Abbildung \(r\cdot\_:R\to R\) ist.
@@ -155,3 +159,40 @@ Wenn \(r\) regulär ist, können wir für beliebige \(a,b\in R\) aus \(ra=rb\) b
 \end{definition}
 
 \subsection{Ideale}
+\begin{definition}
+  Sei \(R\) ein Ring.
+  Ein \begriff{Ideal} ist eine Teilmenge \(I\subseteq R\) sodass gilt:
+  \begin{enumerate}[(i)]
+  \item \(I\) ist eine Untergruppe von \((R,+)\).
+  \item \(\forall r\in R, x\in I. r\cdot x\in I\).
+  \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+  \begin{enumerate}
+  \item Für jeden Ring \(R\) sind \(\{0\},R\subseteq R\) Ideale.
+    Wenn \(R\) ein Körper ist, gibt es keine weiteren Ideale.
+  \item Die Untergruppen \(n\Z\) für \(n\in \N\) von \((\Z,+)\) sind auch genau die Ideale in \(\Z\).
+  \item Sei \(R\) ein Ring, dann ist \(\sqrt{0}\coloneq \{r\in R\mid \exists n\in\N. r^n=0\}\subseteq R\) ein Ideal.
+  \end{enumerate}
+\end{beispiel}
+
+\begin{definition}
+  Sei \(R\) ein Ring.
+  \begin{enumerate}[(a)]
+  \item Für \(A\subseteq R\) ist
+    \[
+      (A)\coloneq \{\sum_{i=0}^nr_ia_i\in R\mid r_i\in R, a_i\in A\}
+    \]
+    das von \(A\) \begriff{erzeugte Ideal}. Speziell für \(a_0,\dots,a_l\in R\) schreiben wir:
+    \[
+      (a_0,\dots,a_l)\coloneq (\{a_0,\dots,a_l\})=\{\sum_{i=0}^lr_ia_i\in R\mid r_i\in R\}\rlap{.}
+    \]
+  \item Ein Ideal \(I\subseteq R\) heißt \begriff{Hauptideal}, wenn es ein \(a\in R\) gibt, sodass \(I=(a)\) gilt.
+  \item Ist \(R\) nullteilerfrei und jedes Ideal in \(R\) ein Hauptideal, so nennen wir \(R\) \begriff{Hauptidealring}.
+  \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+  \(\Z\) ist Hauptidealring.
+\end{beispiel}
