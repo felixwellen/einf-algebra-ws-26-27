@@ -98,7 +98,33 @@ Für jedes Polynom \(P\in R[X]\) gilt
 für jedes \(n\geq \grad(P)\).
 \end{bemerkung}
 
-\rednote{Stand nach VL vom Dienstag 17.11.2026.  }
+\begin{definition}
+  Sei \(R\) ein Ring. \(r\in R\) ist \begriff{regulär},
+  wenn die Multiplikation mit \(r\) eine injektive Abbildung \(r\cdot\_:R\to R\) ist.
+\end{definition}
+
+Da \(r\cdot\_:(R,+)\to (R,+)\) ein Homomorphismus abelscher Gruppen ist,
+ist die Injektivität äquivalent zu \(\{0\}=\Kern(r\cdot\_)\).
+Wenn \(r\) regulär ist, können wir für beliebige \(a,b\in R\) aus \(ra=rb\) bereits
+\(a=b\) schließen.
+
+\begin{definition}
+  \begin{enumerate}[(a)]
+  \item Sei \(R\) ein Ring und \(S\subseteq R\) eine Teilmenge.
+  \(S\) heißt \begriff{Teilring} oder \begriff{Unterring} von \(R\),
+  wenn \(0,1\in S\) gilt und \(S\) abgeschlossen ist unter \(+,\cdot\) und additiven Inversen.
+\item Ein Ring \(R\) heißt \begriff{Körper}, wenn für alle \(r\in R\) gilt:
+  \[ r\neq 0 \Leftrightarrow r\in R^\times\rlap{.} \]
+  \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+  \begin{enumerate}
+  \item \(\Z\subseteq \Q\) ist ein Teilring. 
+  \item Für einen beliebigen Ring \(R\), ist \(R\) Teilring von \(R[X]\).
+  \item \(\Q,\R,\C\) sind Körper. Wir werden noch sehen: \(\Z/p\Z\) ist für Primzahlen \(p\in\N\) ein Körper.
+  \end{enumerate}
+\end{beispiel}
 
 \begin{definition}
   Sei \(R\) ein Ring.
@@ -121,9 +147,16 @@ wobei wir für \(P=(0,\dots)\) festlegen: \(\grad(P)=-\infty\).
     & \grad(P\cdot Q)\leq \grad(P)+\grad(Q)     
   \end{align*}
   Wenn \(R\) nullteilerfrei ist, gilt sogar \(\grad(P\cdot Q)=\grad(P)+\grad(Q)\).
+  Wenn eins der Polynome normiert ist, gilt ebenfalls \(\grad(P\cdot Q)=\grad(P)+\grad(Q)\).
 \end{bemerkung}
 
-\begin{definition}
+\begin{lemma}
+  Sei \(R\) ein nullteilerfreier Ring. Dann ist \(R[X]\) ebenfalls nullteilerfrei.
+\end{lemma}
+
+Es ist in allgemeinen Polynomringen möglich eine \begriff{Polynomdivision} auszuführen, wenn durch ein normiertes Polynom geteilt wird:
+
+\begin{bemerkung}
   Sei \(R\) ein Ring.
   Seien weiter \(P,Q\in R[X]\) und \(Q\) normiert.
   Dann existieren eindeutige \(R,D\in R[X]\) sodass gilt:
@@ -131,32 +164,9 @@ wobei wir für \(P=(0,\dots)\) festlegen: \(\grad(P)=-\infty\).
     P=DQ+R\text{\quad und }\grad(R)<\grad(Q)\rlap{.}
   \]
   \(R\) heißt \begriff{Rest} der Division von \(P\) mit \(Q\).
-\end{definition}
+\end{bemerkung}
 
-\begin{lemma}
-  Sei \(R\) ein nullteilerfreier Ring. Dann ist \(R[X]\) ebenfalls nullteilerfrei.
-\end{lemma}
-
-\begin{definition}
-  Sei \(R\) ein Ring. \(r\in R\) ist \begriff{regulär},
-  wenn die Multiplikation mit \(r\) eine injektive Abbildung \(r\cdot\_:R\to R\) ist.
-\end{definition}
-
-Da \(r\cdot\_:(R,+)\to (R,+)\) ein Homomorphismus abelscher Gruppen ist,
-ist die Injektivität äquivalent zu \(\{0\}=\Kern(r\cdot\_)\).
-Wenn \(r\) regulär ist, können wir für beliebige \(a,b\in R\) aus \(ra=rb\) bereits
-\(a=b\) schließen.
-
-\begin{definition}
-  Sei \(R\) ein Ring und \(S\subseteq R\) eine Teilmenge.
-  \(S\) heißt \begriff{Teilring} oder \begriff{Unterring} von \(R\),
-  wenn \(0,1\in S\) gilt und \(S\) abgeschlossen ist unter \(+,\cdot\) und additiven Inversen.
-\end{definition}
-
-\begin{definition}
-  Ein Ring \(R\) heißt \begriff{Körper}, wenn für alle \(r\in R\) gilt:
-  \[ r\neq 0 \Leftrightarrow r\in R^\times\rlap{.} \]
-\end{definition}
+\rednote{Stand nach VL vom Freitag 20.11.2026.  }
 
 \subsection{Ideale}
 \begin{definition}
