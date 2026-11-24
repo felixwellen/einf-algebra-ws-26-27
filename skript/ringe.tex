@@ -214,6 +214,23 @@ Es ist in allgemeinen Polynomringen möglich eine \begriff{Polynomdivision} ausz
   \end{enumerate}
 \end{beispiel}
 
+\begin{bemerkung}
+  Sei \(R\) ein Ring und \(I,J\subseteq R\) Ideale.
+  Folgende Operation ergeben wieder Ideale:
+  \begin{align*}
+    & I+J\coloneq \{x+y\mid x\in I, y\in J\} \\
+    & I\cdot J\coloneq \{\sum_{i=1}^nx_iy_i\mid n\in\N,x_i\in I, y_i\in J \} \\
+    & I\cap J    
+  \end{align*}
+\end{bemerkung}
+
+\begin{beispiel}
+  \begin{enumerate}[(a)]
+  \item Wir haben in \ref{lemma-mit-ggt-ideal-summe} bereits gesehen, dass für \(a,b\in \Z\) gilt: \((a)+(b)=(\ggT(a,b))\).
+  \item \((2)\cap (2) \neq (2)\cdot (2) \subseteq \Z\).
+  \end{enumerate}
+\end{beispiel}
+
 \begin{definition}
   Sei \(R\) ein Ring.
   \begin{enumerate}[(a)]
@@ -253,20 +270,3 @@ Es ist in allgemeinen Polynomringen möglich eine \begriff{Polynomdivision} ausz
   Es muss gelten, dass \(Q-dP\) in \(I\) liegt und \(\grad(Q-dP)=\grad(r)<\grad(P)\) gilt. Wegen der Minimalität muss also schon \(0=r=Q-dP\) gelten und damit \(Q=dP\in(P)\).
 \end{beweis}
 
-\begin{bemerkung}
-  Sei \(R\) ein Ring und \(I,J\subseteq R\) Ideale.
-  Folgende Operation ergeben wieder Ideale:
-  \begin{align*}
-    & I+J\coloneq \{x+y\mid x\in I, y\in J\} \\
-    & I\cdot J\coloneq \{\sum_{i=1}^nx_iy_i\mid n\in\N,x_i\in I, y_i\in J \} \\
-    & I\cap J    
-  \end{align*}
-\end{bemerkung}
-
-\begin{beispiel}
-  \begin{enumerate}[(a)]
-  \item Wir haben in \ref{lemma-mit-ggt-ideal-summe} bereits gesehen, dass für \(a,b\in \Z\) gilt: \((a)+(b)=(a,b)=(\ggT(a,b))\).
-  \item \((X,Y)=(X)+(Y)\).
-  \item \((2)\cap (2) \neq (2)\cdot (2) \subseteq \Z\).
-  \end{enumerate}
-\end{beispiel}
