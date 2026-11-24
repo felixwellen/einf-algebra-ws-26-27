@@ -171,8 +171,16 @@ Es ist in allgemeinen Polynomringen möglich eine \begriff{Polynomdivision} ausz
 
 \begin{definition}
   Sei \(R\) ein Ring.
-  Den Polynomring \(R[X_1,\dots,X_n]\) der multivariaten Polynome in \(n\) Variablen, zunächst legen wir im Fall \(n=1\) fest: \(R[X_1]\coloneq R[X]\). Dabei bennen wir \(X\) um zu \(X_1\). Weiter legen wir induktiv fest: \(R[X_1,\dots,X_{n+1}]\coloneq (R[X_1,\dots,X_n])[X]\), wobei auch hier die Variablen entsprechend umbenannt werden. Außerdem erlauben wir uns, den Variablen andere Namen zu geben, also etwa \(R[X,Y]\) statt \(R[X_1,X_2]\) zu schreiben.
+  Den Polynomring \(R[X_1,\dots,X_n]\)\index{\(R[X_1,\dots,X_n]\)} der multivariaten Polynome in \(n\) Variablen, zunächst legen wir im Fall \(n=1\) fest: \(R[X_1]\coloneq R[X]\). Dabei bennen wir \(X\) um zu \(X_1\). Weiter legen wir induktiv fest: \(R[X_1,\dots,X_{n+1}]\coloneq (R[X_1,\dots,X_n])[X]\), wobei auch hier die Variablen entsprechend umbenannt werden. Außerdem erlauben wir uns, den Variablen andere Namen zu geben, also etwa \(R[X,Y]\) statt \(R[X_1,X_2]\) zu schreiben.
 \end{definition}
+
+\begin{bemerkung}
+  Multivariate Polynome \(P\in R[X_1,\dots,X_n]\) können geschrieben werden als:
+  \[
+    P=\sum_{\sigma\in \N^n,\sum_{i=1}^n \sigma_i\leq d}a_{\sigma}
+    \]
+    für ein \(d\in \N\) und Koeffizienten \(a_\sigma\in R\).
+\end{bemerkung}
 
 \subsection{Ideale}
 \begin{definition}
@@ -190,6 +198,10 @@ Es ist in allgemeinen Polynomringen möglich eine \begriff{Polynomdivision} ausz
   \item Für jeden Ring \(R\) sind \(\{0\},R\subseteq R\) Ideale.
     Wenn \(R\) ein Körper ist, gibt es keine weiteren Ideale.
   \item Die Untergruppen \(n\Z\) für \(n\in \N\) von \((\Z,+)\) sind auch genau die Ideale in \(\Z\).
+  \item Seien \(R,S\) Ringe. Dann ist \(I_1\coloneq \{(0,s)\mid s\in S\}\subseteq R\times S\) ein Ideal.
+  \item Sei \(\mathcal C(\R)\) die Menge der stetigen Funktionen \(\R\to \R\).
+    \(\mathcal C(\R)\) ist mit punktweiser Addition und Multiplikation ein Ring.
+    Die Menge \(I_0\coloneq \{f\in C(\R)\mid f(0)=0\}\) ist ein Ideal.
   \item Sei \(R\) ein Ring, dann ist \(\sqrt{0}\coloneq \{r\in R\mid \exists n\in\N. r^n=0\}\subseteq R\) ein Ideal.
   \end{enumerate}
 \end{beispiel}
@@ -201,7 +213,7 @@ Es ist in allgemeinen Polynomringen möglich eine \begriff{Polynomdivision} ausz
     \[
       (A)\coloneq \{\sum_{i=0}^nr_ia_i\in R\mid r_i\in R, a_i\in A\}
     \]
-    das von \(A\) \begriff{erzeugte Ideal}. Speziell für \(a_0,\dots,a_l\in R\) schreiben wir:
+    das von \(A\) \begriff{erzeugte Ideal}\index{\((a_0,\dots,a_l)\)}. Speziell für \(a_0,\dots,a_l\in R\) schreiben wir:
     \[
       (a_0,\dots,a_l)\coloneq (\{a_0,\dots,a_l\})=\{\sum_{i=0}^lr_ia_i\in R\mid r_i\in R\}\rlap{.}
     \]
@@ -209,6 +221,13 @@ Es ist in allgemeinen Polynomringen möglich eine \begriff{Polynomdivision} ausz
   \item Ist \(R\) nullteilerfrei und jedes Ideal in \(R\) ein Hauptideal, so nennen wir \(R\) \begriff{Hauptidealring}.
   \end{enumerate}
 \end{definition}
+
+\begin{beispiel}
+  \begin{enumerate}[(a)]
+  \item \((X,Y)\subseteq R[X,Y]\) ist kein Hauptideal.
+  \item \((2,X)\subseteq \Z[X]\) ist kein Hauptideal.
+  \end{enumerate}
+\end{beispiel}
 
 \begin{satz}
   \(\Z\) ist Hauptidealring.
@@ -232,3 +251,20 @@ Es ist in allgemeinen Polynomringen möglich eine \begriff{Polynomdivision} ausz
   Nach \ref{polynomdivision-mit-rest} gibt es \(r,d\in k[X]\) mit \(Q=dP+r\) sodass \(\grad(r)<\grad(P)\) gilt.
   Es muss gelten, dass \(Q-dP\) in \(I\) liegt und \(\grad(Q-dP)=\grad(r)<\grad(P)\) gilt. Wegen der Minimalität muss also schon \(0=r=Q-dP\) gelten und damit \(Q=dP\in(P)\).
 \end{beweis}
+
+\begin{bemerkung}
+  Sei \(R\) ein Ring und \(I,J\subseteq R\) Ideale.
+  Folgende Operation ergeben wieder Ideale:
+  \begin{align*}
+    & I+J\coloneq \{x+y\mid x\in I, y\in J\} \\
+    & I\cdot J\coloneq \{\sum_{i=1}^nx_iy_i\mid n\in\N,x_i\in I, y_i\in J \} \\
+    & I\cap J    
+  \end{align*}
+\end{bemerkung}
+
+\begin{beispiel}
+  \begin{enumerate}[(a)]
+  \item \((X,Y)=(X)+(Y)\).
+  \item \((2)\cap (2) \neq (2)\cdot (2) \subseteq \Z\).
+  \end{enumerate}
+\end{beispiel}
