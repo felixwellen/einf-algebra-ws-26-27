@@ -167,11 +167,9 @@ Es ist in allgemeinen Polynomringen möglich eine \begriff{Polynomdivision} ausz
   \(S\) heißt \begriff{Rest} der Division von \(P\) mit \(Q\).
 \end{bemerkung}
 
-\rednote{Stand nach VL vom Freitag 20.11.2026.  }
-
 \begin{definition}
   Sei \(R\) ein Ring.
-  Den Polynomring \(R[X_1,\dots,X_n]\)\index{\(R[X_1,\dots,X_n]\)} der multivariaten Polynome in \(n\) Variablen, zunächst legen wir im Fall \(n=1\) fest: \(R[X_1]\coloneq R[X]\). Dabei bennen wir \(X\) um zu \(X_1\). Weiter legen wir induktiv fest: \(R[X_1,\dots,X_{n+1}]\coloneq (R[X_1,\dots,X_n])[X]\), wobei auch hier die Variablen entsprechend umbenannt werden. Außerdem erlauben wir uns, den Variablen andere Namen zu geben, also etwa \(R[X,Y]\) statt \(R[X_1,X_2]\) zu schreiben.
+  Den Polynomring \(R[X_1,\dots,X_n]\)\index{\(R[X_1,\dots,X_n]\)} der multivariaten Polynome in \(n\) Variablen, zunächst legen wir im Fall \(n=0\) fest: \(R[]\coloneq R\). Weiter legen wir induktiv fest: \(R[X_1,\dots,X_{n+1}]\coloneq (R[X_1,\dots,X_n])[X]\), wobei wir die Variablen entsprechend umbennen. Außerdem erlauben wir uns, den Variablen andere Namen zu geben, also etwa \(R[X,Y]\) statt \(R[X_1,X_2]\) zu schreiben.
 \end{definition}
 
 \begin{bemerkung}
@@ -226,8 +224,9 @@ Es ist in allgemeinen Polynomringen möglich eine \begriff{Polynomdivision} ausz
 
 \begin{beispiel}
   \begin{enumerate}[(a)]
-  \item Wir haben in \ref{lemma-mit-ggt-ideal-summe} bereits gesehen, dass für \(a,b\in \Z\) gilt: \((a)+(b)=(\ggT(a,b))\).
-  \item \((2)\cap (2) \neq (2)\cdot (2) \subseteq \Z\).
+  \item Wir haben in \ref{lemma-mit-ggt-ideal-summe} bereits gesehen, dass für \(a,b\in \Z\) gilt: \(a\Z+b\Z=\ggT(a,b)\Z\).
+  \item \(2\Z\cap 3\Z=6\Z=2\Z\cdot 3\Z\) Aber:
+    \(2\Z\cap 2\Z \neq 2\Z\cdot 2\Z=4\Z\).
   \end{enumerate}
 \end{beispiel}
 
@@ -242,7 +241,7 @@ Es ist in allgemeinen Polynomringen möglich eine \begriff{Polynomdivision} ausz
     \[
       (a_0,\dots,a_l)\coloneq (\{a_0,\dots,a_l\})=\{\sum_{i=0}^lr_ia_i\in R\mid r_i\in R\}\rlap{.}
     \]
-  \item Ein Ideal \(I\subseteq R\) heißt \begriff{Hauptideal}, wenn es ein \(a\in R\) gibt, sodass \(I=(a)\) gilt.
+  \item Ein Ideal \(I\subseteq R\) heißt \begriff{Hauptideal}, wenn es ein \(a\in R\) gibt, sodass \(I=(a)=\{ra\in R\mid r\in R\}\) gilt.
   \item Ist \(R\) nullteilerfrei und jedes Ideal in \(R\) ein Hauptideal, so nennen wir \(R\) \begriff{Hauptidealring}.
   \end{enumerate}
 \end{definition}
@@ -270,3 +269,4 @@ Es ist in allgemeinen Polynomringen möglich eine \begriff{Polynomdivision} ausz
   Es muss gelten, dass \(Q-dP\) in \(I\) liegt und \(\grad(Q-dP)=\grad(r)<\grad(P)\) gilt. Wegen der Minimalität muss also schon \(0=r=Q-dP\) gelten und damit \(Q=dP\in(P)\).
 \end{beweis}
 
+\rednote{Stand nach VL vom Dienstag 24.11.2026.  }
