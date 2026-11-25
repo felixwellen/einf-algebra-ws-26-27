@@ -4,15 +4,14 @@
   Eine \begriff{Ring} (mit Eins) ist eine Menge \(R\) zusammen mit zwei Verknüpfungen \(+\) und \(\cdot\) sodass gilt:
   \begin{enumerate}[(i)]
   \item \((R,+)\) ist abelsche Gruppe.
-  \item \((R,\cdot)\) ist Monoid.
+  \item \((R,\cdot)\) ist ein kommutatives Monoid. (Unten ist ein Beispiel eines \emph{nicht-kommutativen} Rings - das bedeutet, dass \((R,\cdot)\) nur ein Monoid ist.)
   \item Es gelten die folgenden beiden Distributivgesetze:
     \begin{align*}
       &\forall a,b,c\in R.~ (a+b)\cdot c =a\cdot c+b\cdot c \\
       &\forall a,b,c\in R.~ a\cdot (b+c)=a\cdot b+a\cdot c
     \end{align*}
+    (Wobei wir uns eins der beiden Gesetze wegen Kommutativität sparen können)
   \end{enumerate}
-  Ein Ring heißt \emph{kommutativ}, wenn \(\cdot\) kommutativ ist.
-  Wir gehen stets davon aus, dass das der Fall ist und erwähnen Ausnahmen explizit.
 \end{definition}
 
 \begin{konvention}
@@ -270,3 +269,139 @@ Es ist in allgemeinen Polynomringen möglich eine \begriff{Polynomdivision} ausz
 \end{beweis}
 
 \rednote{Stand nach VL vom Dienstag 24.11.2026.  }
+
+\begin{lemma}
+  Ein Ring \(R\) ist genau dann nullteilerfrei, wenn \(R\) nicht der Nullring ist und für alle \(a,b\in R\) mit \(ab=0\) bereits \(a=0\) oder \(b=0\) gilt.
+\end{lemma}
+
+\begin{bemerkung}
+  Sei \(R\) nullteilerfreier Ring. Zwei Hauptideale \((a),(b)\subseteq R\) stimmen genau dann überein, wenn es eine Einheit \(x\in R^\times\) gibt sodass \(a=xb\) gilt.
+\end{bemerkung}
+
+\begin{beweis}
+  Wegen \((a)=(b)\) gibt es \(x,y\in R\) mit \(a=xb\) und \(b=ya\).
+  Dann gilt auch \(a=xya\) und damit \((1-xy)a=0\).
+  Wegen Nullteilerfreiheit muss also \(a=0\) oder \(xy=1\) gelten.
+  In beiden Fällen ist die Behauptung gezeigt.
+\end{beweis}
+
+Da Ideale \(I\subseteq R\) auch abelsche Untergruppen sind,
+ist \(R/I\) eine Faktorgruppe.
+Durch die zusätzlichen Eigenschaften von Idealen ist auch die Multiplikation
+\[
+  (x+I)\cdot (y+I)\coloneq xy+I
+\]
+wohldefiniert: Für weitere Vertreter \(x^\prime+I, y^\prime+I\) der Nebenklassen \(x+I,y+I\in R/I\) gilt \(x^\prime=x+a\) und \(y^\prime=y+b\) mit \(a,b\in I\) und damit
+\[
+  (x^\prime+I)\cdot (y^\prime+I)=(x+a+I)\cdot (y+b+I)=(x+a)(y+b)+I=(xy+ya+xb+ab)+I=xy+I
+\]
+wobei die letzte Gleichheit durch \(ya+xb+ab\in I\) zustande kommt.
+
+\begin{definition}
+  Seien \(R\) ein Ring und \(I\subseteq R\) ein Ideal.
+  Dann ist
+  \[
+  R/I\coloneq \{x+I\mid x\in R\}
+  \]
+  der \begriff{Faktor- oder Quotientenring}\index{\(R/I\)} von \(R\) nach \(I\),
+  wobei die Addition und Multiplikation auf \(R/I\) gegeben sind durch:
+  \begin{align*}
+    (x+I) + (y+I) &\coloneq (x+y)+I \\
+    (x+I) \cdot (y+I) &\coloneq (xy)+I
+  \end{align*}
+  Die Abbildung \(\pi:R\to R/I\) ist gegeben durch \(\pi(x)\coloneq x+I\).
+  Wir schreiben auch \([x]\) für \(\pi(x)\)\index{\([x]\)}.
+\end{definition}
+
+\begin{beispiel}
+  \begin{enumerate}[(a)]    
+  \item \(\Z/n\Z\) ist ein Ring. \(\Z/n\Z\) ist genau dann ein Körper, wenn \(n\) eine Primzahl ist.
+  \item Sei \(R\coloneq \R[X]/(X^2+1)\). Dann gilt:
+    \[ R=\{[a+bX]\mid a,b\in \R\} \]
+    und \([a+bX]\cdot [c+dX]=[ac-bd+(ad+bc)X]\).
+  \item Sei \(n\in\Z\).
+    \(\Z[\frac{1}{n}]\coloneq \Z[X]/(nX-1)\) ist ein Ring, in dem \(n\) eine Einheit ist.
+  \end{enumerate}
+\end{beispiel}
+
+\begin{definition}
+  Sei \(I\subseteq R\) ein Ideal.
+  \begin{enumerate}[(a)]
+  \item \(I\) heißt \begriff{Primideal}, wenn \(I\neq R\) ist und für alle \(a,b\in R\) mit \(ab\in I\) bereits \(a\in I\) oder \(b\in I\) gilt.
+  \item \(I\) heißt \begriff{maximales Ideal}, wenn \(I\neq R\) gilt und für jedes Ideal \(J\) mit \(I\subseteq J\neq R\) bereits \(J=I\).
+  \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+  Jedes maximale Ideal ist auch Primideal.
+\end{lemma}
+
+\begin{beispiel}
+  \begin{enumerate}
+  \item \(p\Z\) für \(p\) Primzahl ist maximales Ideal.
+  \end{enumerate}
+\end{beispiel}
+
+\begin{lemma}
+  Sei \(I\subseteq R\) ein Ideal.
+  \(R/I\) ist genau dann nullteilerfrei, wenn \(I\) Primideal ist.
+\end{lemma}
+
+\begin{beweis}
+  Zunächst ist \(R/I\) genau dann nicht der Nullring, wenn \(I\neq R\).
+  Seien \(a+I,b+I\in R/I\) mit \((a+I)(b+I)=0\) gegeben, also \(ab\in I\).
+  Dann gilt \(a+I=0\) oder \(b+I=0\), was äquivalent ist zu \(a\in I\) oder \(b\in I\).
+\end{beweis}
+
+
+\subsection{Ringhomomorphismen}
+
+\begin{definition}
+  Seien \(R,S\) Ringe und \(f:R\to S\) eine Abbildung.
+  \(f\) heißt Ringhomomorphismus, wenn
+  \begin{enumerate}[(i)]
+  \item \(f:(R,+)\to (S,+)\) Homomorphismus von Gruppen und
+  \item \(f:(R,\cdot,1)\to (S,\cdot,1)\) Homomorphismus von Monoiden ist.
+  \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+  Sei \(R\) ein Ring.
+  \begin{enumerate}[(a)]
+  \item Die Identität \(\id:R\to R\) ist immer ein Ringhomomorphismus.
+  \item Die Abbildung \(R\to \{0\}\) ist immer ein Ringhomomorphismus.
+  \item Die Abbildung \(i:\Z\to R\) mit \(i(k)\coloneq k\cdot 1\) ist immer ein Ringhomomorphismus. 
+  \item Für jedes Ideal \(I\subseteq R\) ist \(\pi:R\to R/I\) ein Ringhomomorphismus.
+  \end{enumerate}
+\end{beispiel}
+
+\begin{lemma}
+  Sei \(f:R\to S\) ein Ringhomomorphismus.
+  Dann ist die Einschränkung von \(f\) auf \(R^\times\) ein Homomorphismus \(f|R^\times:R^\times\to S^\times\) der Einheitengruppen. 
+\end{lemma}
+
+\begin{lemma}
+  Sei \(f:R\to S\) ein Ringhomomorphismus.
+  \begin{enumerate}[(a)]
+  \item Sei \(I\subseteq S\) ein Ideal.
+    Dann ist auch \(f^{-1}(I)\subseteq R\) ein Ideal.
+  \item Sei \(J\subseteq R\) ein Ideal und \(f\) surjektiv.
+    Dann ist auch \(f(J)\subseteq S\) ein Ideal.
+  \end{enumerate}
+\end{lemma}
+
+\begin{satz}
+  Seien \(R\) ein Ring und \(I\subseteq R\) ein Ideal.
+  \(R/I\) ist genau dann ein Körper, wenn \(I\) maximal ist.
+\end{satz}
+
+\begin{beweis}
+  Sei \(I\neq R\) maximal. Dann gibt es für jedes \(x\in R\) mit \(x\notin I\) ein \(a\in I\) und \(r\in R\), sodass \(rx+a\) eine Einheit ist.
+  Also ist für jedes \(x+I\in R/I\) mit \(x+I\neq 0\), \(rx+I\) eine Einheit in \(R/I\), also auch \(x+I\). Also ist \(R/I\) ein Körper.
+
+  Sei \(R/I\) Körper und \(J\subseteq R\) ein Ideal mit \(I\subseteq J\).
+  Dann ist \(\pi(J)\subseteq R/I\) ein Ideal, das nicht das Nullideal ist,
+  also gilt \(\pi(J)=R/I\).
+  Dann muss aber schon \(J=R\) gelten, da \(J\) disjunkte Vereinigung von Nebenklassen von \(I\) ist.
+\end{beweis}
+
