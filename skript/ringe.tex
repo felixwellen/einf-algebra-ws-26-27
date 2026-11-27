@@ -327,30 +327,37 @@ wobei die letzte Gleichheit durch \(ya+xb+ab\in I\) zustande kommt.
 \begin{definition}
   Sei \(I\subseteq R\) ein Ideal.
   \begin{enumerate}[(a)]
+  \item \(I\) heißt \begriff{echtes Ideal}, wenn \(I\neq R\) gilt.
   \item \(I\) heißt \begriff{Primideal}, wenn \(I\neq R\) ist und für alle \(a,b\in R\) mit \(ab\in I\) bereits \(a\in I\) oder \(b\in I\) gilt.
   \item \(I\) heißt \begriff{maximales Ideal}, wenn \(I\neq R\) gilt und für jedes Ideal \(J\) mit \(I\subseteq J\neq R\) bereits \(J=I\).
   \end{enumerate}
 \end{definition}
 
-\begin{lemma}
-  Jedes maximale Ideal ist auch Primideal.
-\end{lemma}
-
 \begin{beispiel}
   \begin{enumerate}
   \item \(p\Z\) für \(p\) Primzahl ist maximales Ideal.
+  \item \((X^2+1)\subseteq \Q[X]\) ist ein maximales Ideal.
   \end{enumerate}
 \end{beispiel}
 
 \begin{lemma}
   Sei \(I\subseteq R\) ein Ideal.
-  \(R/I\) ist genau dann nullteilerfrei, wenn \(I\) Primideal ist.
+  \begin{enumerate}[(a)]
+  \item \(R/I\) ist genau dann der Nullring, wenn \(I=R\) gilt.
+  \item \(R/I\) ist genau dann nullteilerfrei, wenn \(I\) Primideal ist.
+  \end{enumerate}
 \end{lemma}
 
 \begin{beweis}
-  Zunächst ist \(R/I\) genau dann nicht der Nullring, wenn \(I\neq R\).
+  \begin{enumerate}[(a)]
+  \item Sei \(x\in R\).
+    Es gilt genau dann \([x]=[0]\) wenn \(x=x-0\in I\).
+    Also leigen alle \(x\in \) genau dann in \(I\),
+    wenn \(R/I\) aus nur einer Äquivalenzklasse besteht, also der Nullring ist.
+  \item Zunächst ist \(R/I\) genau dann nicht der Nullring, wenn \(I\neq R\).
   Seien \(a+I,b+I\in R/I\) mit \((a+I)(b+I)=0\) gegeben, also \(ab\in I\).
   Dann gilt \(a+I=0\) oder \(b+I=0\), was äquivalent ist zu \(a\in I\) oder \(b\in I\).
+  \end{enumerate}
 \end{beweis}
 
 
@@ -405,3 +412,6 @@ wobei die letzte Gleichheit durch \(ya+xb+ab\in I\) zustande kommt.
   Dann muss aber schon \(J=R\) gelten, da \(J\) disjunkte Vereinigung von Nebenklassen von \(I\) ist.
 \end{beweis}
 
+\begin{korollar}
+  Jedes maximale Ideal ist auch Primideal.
+\end{korollar}
